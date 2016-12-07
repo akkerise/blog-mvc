@@ -11,4 +11,13 @@ class Blog extends Controller
         require APP . "view/travel.php";
         require APP . "view/__templates/footer.php";
     }
+
+    public function music()
+    {
+        $music = $this->model->getBlog(2);
+        //load view
+        require APP . "view/__templates/header.php";
+        require APP . "view/music.php";
+        require APP . "view/__templates/footer.php";
+    }
 }
