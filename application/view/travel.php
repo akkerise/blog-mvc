@@ -1,3 +1,7 @@
+<?php
+//var_dump($totalPage);
+//exit();
+//?>
 <div class="technology">
     <div class="container">
         <div class="col-md-9 technology-left">
@@ -31,11 +35,13 @@
                 <nav class="paging">
                     <ul class="pagination pagination-lg">
                         <li><a href="#" aria-label="Previous"><span aria-hidden="true"><<</span></a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        <?php
+                        for ($i = 1; $i <= $totalPage; $i++) {
+                            ?>
+                            <li><a href="#"><?php echo $i ?></a></li>
+                            <?php
+                        }
+                        ?>
                         <li><a href="#" aria-label="Next"><span aria-hidden="true">>></span></a></li>
                     </ul>
                 </nav>

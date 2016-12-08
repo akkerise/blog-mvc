@@ -29,13 +29,25 @@ class Model
         }
     }
 
-    public function getBlog($id_cate)
+    public function getBlog($id_cate, $limit = 6, $page = 1)
     {
-        $sql = "SELECT * FROM blogs WHERE id_category = $id_cate";
+        $sql = "SELECT * FROM blogs WHERE id_category = $id_cate ORDER BY date DESC" . " LIMIT " . (($page - 1) * $limit) . "," . $limit;
         try{
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function getTotal($id_cate)
+    {
+        $sql = "SELECT COUNT(*) as total_blogs FROM blogs WHERE id_category = $id_cate";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
         }catch(PDOException $e){
             echo $e->getMessage();
         }
