@@ -49,7 +49,8 @@
                     <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
                     <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
                     <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                    <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                    <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed
+                            Sidebar</a></li>
                 </ul>
             </li>
             <li>
@@ -106,16 +107,16 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-table"></i> <span>Tables</span>
+                <a href="<?php echo URL ?>/admin/users">
+                    <i class="fa fa-table"></i> <span>Users</span>
                     <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+<!--              <i class="fa fa-angle-left pull-right"></i>-->
             </span>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-                </ul>
+<!--                <ul class="treeview-menu">-->
+<!--                    <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>-->
+<!--                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>-->
+<!--                </ul>-->
             </li>
             <li>
                 <a href="pages/calendar.html">
