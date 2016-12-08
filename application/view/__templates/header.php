@@ -11,7 +11,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- Custom Theme files -->
     <link href='//fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
     <link href="<?php echo URL ?>css/style.css" rel='stylesheet' type='text/css' />
-    <script src="<?php echo URL ?>js/jquery-1.11.1.min.js"></script>
+    <script src="<?php echo URL ?>js/jquery-2.2.3.min.js"></script>
     <script src="<?php echo URL ?>js/bootstrap.min.js"></script>
     <!-- animation-effect -->
     <link href="<?php echo URL ?>css/animate.min.css" rel="stylesheet">
