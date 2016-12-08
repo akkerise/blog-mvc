@@ -4932,6 +4932,6 @@ table.text-center th {
 }
 
 .btn-edit, .btn-delete {
-  display: block;
+  display: inline-block;
   margin: 0 auto;
 }
