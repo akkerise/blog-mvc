@@ -4930,3 +4930,8 @@ table.text-center th {
     white-space: normal !important;
   }
 }
+
+.btn-edit, .btn-delete {
+  display: block;
+  margin: 0 auto;
+}
