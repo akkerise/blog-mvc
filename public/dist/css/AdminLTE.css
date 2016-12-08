@@ -4930,7 +4930,12 @@ table.text-center th {
     white-space: normal !important;
   }
 }
-
+.btn-add {
+  float: right;
+  display: block;
+  width: 10%;
+  margin-bottom: 10px;
+}
 .btn-edit, .btn-delete {
   display: inline-block;
   margin: 0 auto;

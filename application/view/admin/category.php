@@ -24,12 +24,14 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
+                        <button class="btn btn-success btn-add" data-toggle="modal" href="#add_category">Add</button>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Description</th>
+                                <th colspan="2" class="text-center">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -39,8 +41,8 @@
                                     Explorer 4.0
                                 </td>
                                 <td>Win 95+</td>
-                                <td><button class="btn btn-primary text-center btn-edit">Edit</button></td>
-                                <td><button class="btn btn-danger btn-delete">Delete</button></td>
+                                <td><button class="btn btn-primary btn-edit" data-toggle="modal" href="#edit_category">Edit</button></td>
+                                <td><button class="btn btn-danger btn-delete" data-toggle="modal" href="#delete_category">Delete</button></td>
                             </tr>
                             </tbody>
                             <tfoot>
@@ -65,3 +67,59 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<div class="modal fade" id="add_category">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Thêm danh mục</h4>
+            </div>
+            <div class="modal-body">
+                Tên danh mục: <input type="text" name="name" id="inputID" class="form-control" value="" title="" required="required" >
+                Miêu tả: <input type="text" name="name" id="inputID" class="form-control" value="" title="" required="required" >
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="edit_category">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Sửa danh mục</h4>
+			</div>
+			<div class="modal-body">
+				Tên danh mục: <input type="text" name="name" id="inputID" class="form-control" value="" title="" required="required" >
+				Miêu tả: <input type="text" name="name" id="inputID" class="form-control" value="" title="" required="required" >
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+				<button type="button" class="btn btn-primary">Lưu</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="delete_category">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Yêu cầu xác nhận</h4>
+            </div>
+            <div class="modal-body">
+                <h1>Bạn có chắc chắn muốn xóa không?</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-danger">Xóa</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
