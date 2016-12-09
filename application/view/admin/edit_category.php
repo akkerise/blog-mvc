@@ -19,43 +19,25 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Danh sách thể loại</h3>
+                        <h3 class="box-title">Sửa danh mục</h3>
 
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <a class="btn btn-success btn-add" href="<?php echo URL ?>categories/create_category">Add</a>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th colspan="2" class="text-center">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php
-                            foreach ($totalCate as $tocalCate) {
-                                ?>
-                                <tr>
-                                    <td><?php echo $tocalCate["category_id"] ?></td>
-                                    <td><?php echo $tocalCate["name_category"] ?></td>
-                                    <td><?php echo $tocalCate["description"] ?></td>
-                                    <td>
-                                        <button class="btn btn-primary btn-edit" data-toggle="modal"
-                                                href="#edit_category">Edit
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger btn-delete" data-toggle="modal"
-                                                href="#delete_category">Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <?php
-                            }
-                            ?>
+                            <tr>
+                                <td><?php echo $category["category_id"] ?></td>
+                                <td><?php echo $category["name_category"] ?></td>
+                                <td><?php echo $category["description"] ?></td>
+                            </tr>
                             </tbody>
                             <tfoot>
                             <tr>

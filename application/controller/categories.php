@@ -13,7 +13,7 @@ class Categories extends Controller
         $totalCate = $this->model->getCategory();
         require APP . "view/admin/__templates/header.php";
         require APP . "view/admin/__templates/sidebar.php";
-        require APP . "view/admin/category.php";
+        require APP . "view/admin/categories.php";
         require APP . "view/admin/__templates/footer.php";
     }
 
@@ -29,6 +29,15 @@ class Categories extends Controller
         require APP . "view/admin/__templates/header.php";
         require APP . "view/admin/__templates/sidebar.php";
         require APP . "view/admin/create_category.php";
+        require APP . "view/admin/__templates/footer.php";
+    }
+
+    public function edit_category($category_id)
+    {
+        $category = $this->model->getCategoryById($category_id);
+        require APP . "view/admin/__templates/header.php";
+        require APP . "view/admin/__templates/sidebar.php";
+        require APP . "view/admin/edit_category.php";
         require APP . "view/admin/__templates/footer.php";
     }
 }

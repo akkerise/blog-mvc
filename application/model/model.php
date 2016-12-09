@@ -65,6 +65,18 @@ class Model
         }
     }
 
+    public function getCategoryById($category_id)
+    {
+        $sql = "SELECT * FROM categories WHERE category_id = $category_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
     public function createCategory($name_category, $description)
     {
         $sql = "INSERT INTO categories (name_category, description) VALUES (:name_category, :description)";
