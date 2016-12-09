@@ -67,12 +67,12 @@
                 <div class="tc-ch wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 
                     <div class="tch-img">
-                        <a href="singlepage.html"><img src="images/blog/<?php echo $travel["image"] ?>"
+                        <a href="singlepage.html"><img src="<?php echo URL ?>images/blog/<?php echo $travel["image"] ?>"
                                                        class="img-responsive" alt=""></a>
                     </div>
 
-                    <h3><a href="singlepage.html"><?php echo $travel["name_blog"] ?></a></h3>
-                    <h6>BY <a href="singlepage.html"><?php echo $travel["username"] ?> </a><?php echo $travel["date"] ?>
+                    <h3><a href="singlepage.html"><?php echo $travel["title"] ?></a></h3>
+                    <h6>BY <a href="singlepage.html"><?php echo $travel["username"] ?> </a><?php echo $travel["created_at"] ?>
                     </h6>
                     <p><?php echo $travel["description"] ?></p>
                     <div class="bht1">
@@ -104,9 +104,9 @@
                                              class="img-responsive" alt=""></a>
                                 </div>
 
-                                <h3><a href="singlepage.html"><?php echo $music["name_blog"] ?></a></h3>
+                                <h3><a href="singlepage.html"><?php echo $music["title"] ?></a></h3>
                                 <h6>BY <a
-                                        href="singlepage.html"><?php echo $music["username"] ?> </a><?php echo $music["date"] ?>
+                                        href="singlepage.html"><?php echo $music["username"] ?> </a><?php echo $music["created_at"] ?>
                                 </h6>
                                 <p><?php echo $music["description"] ?></p>
                                 <div class="bht1">
@@ -139,8 +139,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 wthree-right wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-                            <h3><a href="singlepage.html"><?php echo $fashion["name_blog"]?></a></h3>
-                            <h6>BY <a href="singlepage.html"><?php echo $fashion["username"]?> </a><?php echo $fashion["date"]?></h6>
+                            <h3><a href="singlepage.html"><?php echo $fashion["title"]?></a></h3>
+                            <h6>BY <a href="singlepage.html"><?php echo $fashion["username"]?> </a><?php echo $fashion["created_at"]?></h6>
                             <p><?php echo $fashion["description"]?></p>
                             <div class="bht1">
                                 <a href="singlepage.html">Read More</a>
@@ -275,7 +275,8 @@
                                     js.src = p + '://platform.twitter.com/widgets.js';
                                     fjs.parentNode.insertBefore(js, fjs);
                                 }
-                            }(document, 'script', 'twitter-wjs');</script>
+                            }(document, 'script', 'twitter-wjs');
+                        </script>
                     </div>
                 </div>
 

@@ -238,5 +238,6 @@
 <script src="<?php echo URL ?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo URL ?>dist/js/demo.js"></script>
+<script src="<?php echo URL ?>/dist/js/script.js"></script>
 </body>
 </html>
