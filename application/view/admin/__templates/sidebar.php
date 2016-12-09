@@ -27,7 +27,7 @@
             <li class="header">MAIN NAVIGATION</li>
 
             <li>
-                <a href="<?php echo URL ?>admin/category">
+                <a href="<?php echo URL ?>categories">
                     <i class="fa fa-th"></i> <span>Categories</span>
                     <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="<?php echo URL ?>/admin/users">
+                <a href="<?php echo URL ?>admin/users">
                     <i class="fa fa-table"></i> <span>Users</span>
                     <span class="pull-right-container">
 <!--              <i class="fa fa-angle-left pull-right"></i>-->
@@ -44,8 +44,8 @@
 
             </li>
             <li>
-                <a href="pages/calendar.html">
-                    <i class="fa fa-calendar"></i> <span>Calendar</span>
+                <a href="<?php echo URL ?>posts">
+                    <i class="fa fa-calendar"></i> <span>Posts</span>
                     <span class="pull-right-container">
               <small class="label pull-right bg-red">3</small>
               <small class="label pull-right bg-blue">17</small>

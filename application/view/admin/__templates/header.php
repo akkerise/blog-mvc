@@ -17,6 +17,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo URL ?>dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="<?php echo URL ?>plugins/summernote-master/dist/summernote.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="<?php echo URL ?>plugins/iCheck/flat/blue.css">
     <!-- Morris chart -->

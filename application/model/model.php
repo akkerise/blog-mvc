@@ -52,4 +52,61 @@ class Model
             echo $e->getMessage();
         }
     }
+    
+    public function getCategory()
+    {
+        $sql = "SELECT * FROM categories";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function createCategory($name_category, $description)
+    {
+        $sql = "INSERT INTO categories (name_category, description) VALUES (:name_category, :description)";
+        try{
+            $query = $this->db->prepare($sql);
+            $parameters = array(
+                ":name_category" => $name_category,
+                ":description" => $description
+            );
+            return $query->execute($parameters);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function getBlogAdmin()
+    {
+        $sql = "SELECT a.*, b.name_category, c.username FROM blogs a INNER JOIN categories b ON a.category_id = b.category_id INNER JOIN users c ON a.user_id = c.user_id ORDER BY a.created_at DESC";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function createBlog($title, $description, $content, $category_id, $user_id)
+    {
+        $sql = "INSERT INTO blogs (title, description, content, category_id, user_id) VALUES (:title, :description, :content, :category_id, :user_id)";
+        try{
+            $query = $this->db->prepare($sql);
+            $parameters = array(
+                ":title" => $title,
+                ":description" => $description,
+                ":content" => $content,
+                ":category_id" => $category_id,
+                ":user_id" => $user_id
+            );
+            return $query->execute($parameters);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 }
