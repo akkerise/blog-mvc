@@ -24,7 +24,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <button class="btn btn-success btn-add" data-toggle="modal" href="#add_category">Add</button>
+                        <a class="btn btn-success btn-add" href="<?php echo URL ?>categories/create_category">Add</a>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
@@ -35,15 +35,27 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Trident</td>
-                                <td>Internet
-                                    Explorer 4.0
-                                </td>
-                                <td>Win 95+</td>
-                                <td><button class="btn btn-primary btn-edit" data-toggle="modal" href="#edit_category">Edit</button></td>
-                                <td><button class="btn btn-danger btn-delete" data-toggle="modal" href="#delete_category">Delete</button></td>
-                            </tr>
+                            <?php
+                            foreach ($totalCate as $tocalCate) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $tocalCate["category_id"] ?></td>
+                                    <td><?php echo $tocalCate["name_category"] ?></td>
+                                    <td><?php echo $tocalCate["description"] ?></td>
+                                    <td>
+                                        <button class="btn btn-primary btn-edit" data-toggle="modal"
+                                                href="#edit_category">Edit
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger btn-delete" data-toggle="modal"
+                                                href="#delete_category">Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
                             </tbody>
                             <tfoot>
                             <tr>
@@ -76,8 +88,10 @@
                 <h4 class="modal-title">Thêm danh mục</h4>
             </div>
             <div class="modal-body">
-                Tên danh mục: <input type="text" name="name" id="inputID" class="form-control" value="" title="" required="required" >
-                Miêu tả: <input type="text" name="name" id="inputID" class="form-control" value="" title="" required="required" >
+                Tên danh mục: <input type="text" name="name" id="inputID" class="form-control" value="" title=""
+                                     required="required">
+                Miêu tả: <input type="text" name="name" id="inputID" class="form-control" value="" title=""
+                                required="required">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -88,22 +102,24 @@
 </div><!-- /.modal -->
 
 <div class="modal fade" id="edit_category">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Sửa danh mục</h4>
-			</div>
-			<div class="modal-body">
-				Tên danh mục: <input type="text" name="name" id="inputID" class="form-control" value="" title="" required="required" >
-				Miêu tả: <input type="text" name="name" id="inputID" class="form-control" value="" title="" required="required" >
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-				<button type="button" class="btn btn-primary">Lưu</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Sửa danh mục</h4>
+            </div>
+            <div class="modal-body">
+                Tên danh mục: <input type="text" name="name" id="inputID" class="form-control" value="" title=""
+                                     required="required">
+                Miêu tả: <input type="text" name="name" id="inputID" class="form-control" value="" title=""
+                                required="required">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary">Lưu</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 <div class="modal fade" id="delete_category">
