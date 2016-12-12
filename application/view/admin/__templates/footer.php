@@ -234,6 +234,10 @@
 <script src="<?php echo URL ?>dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo URL ?>dist/js/demo.js"></script>
+<<<<<<< HEAD
+<script src="<?php echo URL ?>/dist/js/script.js"></script>
+=======
 <script src="<?php echo URL ?>js/script.js"></script>
+>>>>>>> 9825e02864bb6076174f5d2b541b071982b89d66
 </body>
 </html>

@@ -45,7 +45,9 @@
                                     <td><?php echo $totalPosts["blog_id"] ?></td>
                                     <td><?php echo $totalPosts["title"] ?></td>
                                     <td><?php echo $totalPosts["description"] ?></td>
+<!--                                    <td>--><?php //var_dump( $totalPosts["image"])?><!--</td>-->
                                     <td><img src="<?php echo URL ?>public/images/blog/<?php echo $totalPosts["image"] ?>"></td>
+
                                     <td><?php echo $totalPosts["name_category"] ?></td>
                                     <td><?php echo $totalPosts["username"] ?></td>
                                     <td>

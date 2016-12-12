@@ -45,7 +45,7 @@
                     <br />
                     <p>Mô tả:</p> <input type="text" name="post_description_create" id="inputID" class="form-control" value="" title="" required="required" >
                     <br />
-                    <p>Ảnh đại diện: </p> <input type="file" name="name" id="inputID" class="form-control" value="" title="" required="required" >
+                    <p>Ảnh đại diện: </p> <input type="file" name="post_image_create" id="inputID" class="form-control" value="" title="" required="required" >
                     <br />
                     <p>Nội dung:</p> <div id="post_content_create"></div>
                     <textarea name="post_content_create" id="post_content" cols="30" rows="30" style="display:none;"></textarea>
