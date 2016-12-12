@@ -1,4 +1,3 @@
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -28,31 +27,32 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Username</th>
-                                <th>Password</th>
                                 <th>Email</th>
                                 <th>Quyền QT</th>
                                 <th>Avatar</th>
-                                <th>Action</th>
+                                <th colspan="2" class="text-center">Action</th>
                             </tr>
                             </thead>
                             <?php
                             foreach ($load_users as $r) {
                                 ?>
-                                <tbody id ="row-user-<?php echo $r['user_id']?>">
+                                <tbody id="row-user-<?php echo $r['user_id'] ?>">
                                 <tr>
                                     <td><?php echo $r['user_id'] ?></td>
                                     <td><?php echo $r['username'] ?></td>
-                                    <td><?php echo $r['password'] ?></td>
                                     <td><?php echo $r['email'] ?></td>
-                                    <td><?php echo $r['id_group'] ?></td>
-                                    <td><?php echo $r['avatar'] ?></td>
+                                    <td><?php echo $r['rule'] ?></td>
+                                    <td><img src="<?php echo URL ?>images/user/<?php echo $r['avatar'] ?>"
+                                             style="width: 150px; height: 150px"></td>
                                     <td>
-                                        <button class="btn btn-primary text-center btn-edit" style="min-width: 80px"
-                                                data-toggle="modal" href="#edit_users">Edit
-                                        </button>
-                                        <button class="btn btn-danger btn-delete" style="min-width: 80px"
-                                                onclick="showModal(<?php echo $r['user_id']?>)">Delete
-                                        </button>
+                                        <a class="btn btn-primary text-center btn-edit" style="min-width: 80px"
+                                           data-toggle="modal" href="<?php echo URL ?>users/edit_user/<?php echo $r['user_id'] ?>">Edit
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger btn-delete" style="min-width: 80px"
+                                           onclick="showModal(<?php echo $r['user_id'] ?>)">Delete
+                                        </a>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -88,12 +88,12 @@
                                   required="required">
                     Avatar: <input type="file" name="avatar" id="inputID" class="form-control" value="" title=""
                                    required="required">
-                    Phân quyền: <select id="inputID" class="form-control" name = "id_group">
+                    Phân quyền: <select id="inputID" class="form-control" name="id_group">
                         <option>0</option>
                         <option>1</option>
                     </select>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" >Đóng</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
                         <button type="submit" class="btn btn-primary" name="save_user">Lưu</button>
                     </div>
                 </form>
@@ -127,18 +127,18 @@
 <div class="modal fade" id="delete_users">
     <div class="modal-dialog">
         <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Yêu cầu xác nhận</h4>
-                    <input type="hidden" id="id_user_DL" name="id_user_DL">
-                </div>
-                <div class="modal-body">
-                    <h1>Bạn có chắc chắn muốn xóa không?</h1>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn btn-danger" onclick="delete_user()">Xóa</button>
-                </div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Yêu cầu xác nhận</h4>
+                <input type="hidden" id="id_user_DL" name="id_user_DL">
+            </div>
+            <div class="modal-body">
+                <h1>Bạn có chắc chắn muốn xóa không?</h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-danger" onclick="delete_user()">Xóa</button>
+            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

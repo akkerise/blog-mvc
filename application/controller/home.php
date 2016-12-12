@@ -34,23 +34,19 @@ class Home extends Controller
     }
     public function register ()
     {
-        if(isset($_POST['action']) == "register")
-        {
+        if (isset($_POST['action']) == "register") {
             $name = $_POST['name'];
-            $pass = $_POST['pass'];
+            $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
             $email = $_POST['email'];
             $check = $this->model->check_user($name);
 
-            if ( $check == 0)
-            {
-
+            if ($check == 0) {
                 $this->model->register($name, $email, $pass);
                 $_SESSION['login'] = 1;
                 $_SESSION['name'] = $name;
 //                $_SESSION['id_user'] = $login['user_id'];
                 echo "thanhcong";
-            }
-            else{
+            } else {
                 echo "tachroi";
             }
         }

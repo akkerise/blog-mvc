@@ -4,7 +4,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel " id="status_user">
             <div class="pull-left image">
-                <img src="<?php echo URL ?>images/avatar/<?php echo $_SESSION['avatar']?>" class="img-circle" alt="User Image">
+                <img src="<?php echo URL ?>images/user/<?php echo $_SESSION['avatar']?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p><?php  echo $_SESSION['name']?></p>
@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="<?php echo URL ?>admin/users">
+                <a href="<?php echo URL ?>users">
                     <i class="fa fa-table"></i> <span>Users</span>
                     <span class="pull-right-container">
 <!--              <i class="fa fa-angle-left pull-right"></i>-->

@@ -54,7 +54,7 @@ class Model
                 ":email" => $email
             );
             $query->execute($paramerers);
-            echo $id =  $this->db->lastInsertId();
+            $this->db->lastInsertId();
         }catch(PDOException $e){
             echo $e->getMessage();
         }
@@ -101,7 +101,7 @@ class Model
     // load users
     public function getUsers()
     {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT a.*, b.rule FROM users a INNER JOIN rule_users b ON a.id_group = b.id_group";
         try{
             $query = $this->db->prepare($sql);
             $query->execute();
@@ -111,6 +111,18 @@ class Model
         }
     }
     // end load users
+
+    public function getUserById($user_id)
+    {
+        $sql = "SELECT a.*, b.rule FROM users a INNER JOIN rule_users b ON a.id_group = b.id_group WHERE user_id = $user_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 
     // insert users
     public function insertUser ($username, $password, $email, $avatar,  $id_group)
@@ -131,6 +143,18 @@ class Model
         }
     }
     // end insert users
+
+    public function editUser($user_id, $id_group)
+    {
+        $sql = "UPDATE user SET id_group = $id_group WHERE user_id = $user_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            echo $id_group;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 
     // delete uswsers
     public function delete ($id_user)
