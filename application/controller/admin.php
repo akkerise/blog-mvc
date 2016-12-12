@@ -47,7 +47,12 @@ class Admin  extends Controller
     }
     public function users ()
     {
-        $load_users = $this->model->getUsers();
+        $trang = $_GET['trang']; // lấy số trang hiện tại
+        $load_users = $this->model->getUsers(); // lấy tổng số users
+        $so_users = count($load_users);
+        $so_trang = ceil($so_users / 4); //// số trang sẽ hiện
+        $trang_hien_tai = ($trang - 1)*4;
+        $load_view_user = $this->model->phanTrang($trang_hien_tai,4);
         require APP . "view/admin/__templates/header.php";
         require APP . "view/admin/__templates/sidebar.php";
         require APP . "view/admin/users.php";
@@ -72,7 +77,11 @@ class Admin  extends Controller
             }
         }
     }
-
+    public function phanTrang ()
+    {
+        $users = $this->model->phanTrang();
+        var_dump($users);
+    }
     public function delete ()
     {
         if (isset($_POST['action']) == "delete")
