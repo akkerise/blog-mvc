@@ -34,9 +34,9 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td><?php echo $category["category_id"] ?></td>
-                                <td><?php echo $category["name_category"] ?></td>
-                                <td><?php echo $category["description"] ?></td>
+                                <td id="category_id"><?php echo $category["category_id"] ?></td>
+                                <td><a href="#" id="name_category"><?php echo $category["name_category"] ?></a></td>
+                                <td><a href="#" id="category_description"><?php echo $category["description"] ?></a></td>
                             </tr>
                             </tbody>
                             <tfoot>

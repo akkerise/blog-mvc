@@ -4939,5 +4939,5 @@ table.text-center th {
 .btn-edit, .btn-delete {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: 100%;
 }

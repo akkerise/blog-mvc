@@ -92,6 +92,41 @@ class Model
         }
     }
 
+    public function editCategory($category_id, $type, $name_category = null, $description = null)
+    {
+//        $sql = "UPDATE categories SET name_category = :name_category, description = :description WHERE category_id = $category_id";
+        switch ($type) {
+            case "name_category":
+                $sql = "UPDATE categories SET name_category = :name_category WHERE category_id = $category_id";
+                try{
+                    $query = $this->db->prepare($sql);
+                    $parameters = array(
+                        ":name_category" => $name_category
+                    );
+                    $query->execute($parameters);
+                    return $name_category;
+                }catch(PDOException $e){
+                    echo $e->getMessage();
+                }
+                break;
+            case "category_description":
+                $sql = "UPDATE categories SET description = :description WHERE category_id = $category_id";
+                try{
+                    $query = $this->db->prepare($sql);
+                    $parameters = array(
+                        ":description" => $description
+                    );
+                    $query->execute($parameters);
+                    return $description;
+                }catch(PDOException $e){
+                    echo $e->getMessage();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     public function getBlogAdmin()
     {
         $sql = "SELECT a.*, b.name_category, c.username FROM blogs a INNER JOIN categories b ON a.category_id = b.category_id INNER JOIN users c ON a.user_id = c.user_id ORDER BY a.created_at DESC";

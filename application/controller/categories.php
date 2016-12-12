@@ -35,6 +35,17 @@ class Categories extends Controller
     public function edit_category($category_id)
     {
         $category = $this->model->getCategoryById($category_id);
+
+        if (isset($_POST["name"]) && $_POST["name"] === "name_category") {
+            $newName = $_POST["value"];
+            $edit = $this->model->editCategory($category_id, "name_category", $newName, '');
+            echo $edit;
+        }
+        if (isset($_POST["name"]) && $_POST["name"] === "category_description") {
+            $newDescription = $_POST["value"];
+            $edit = $this->model->editCategory($category_id, "category_description", '', $newDescription);
+            echo $edit;
+        }
         require APP . "view/admin/__templates/header.php";
         require APP . "view/admin/__templates/sidebar.php";
         require APP . "view/admin/edit_category.php";
