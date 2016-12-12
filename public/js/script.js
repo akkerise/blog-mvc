@@ -35,16 +35,22 @@ function register() {
         data: {name: name, email: email, pass: pass, action: "register"},
         success: function (data) {
             console.log(data);
-            if (data != "tachroi"){
+            if (data == "thanhcong"){
 
-                var html = "<span> Xin chào:" + name + "</span>";
+                var html = "<div class='btn-group'> " +
+                    "<button type='button' class='btn button_logout '>" + "Xin chào: " + name + "</button> " +
+                    "<button type='button' class='btn dropdown-toggle button_logout' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> <span class='caret'></span> <span class='sr-only'>Toggle Dropdown</span> </button> " +
+                    "<ul class='dropdown-menu menu_user'> " +
+                    "<li><a href='#' onclick= 'logout()' >Đăng xuất</a></li> " +
+                    "<li><a href='#' >aaaaaaaa</a></li> </ul> </div>";
                 $("#login").remove();
                 $("#username").html(html);
                 $("#myModal").modal("toggle");
             }
         }
 
-})
+    })
+
 }
 function logout () {
     $.ajax({

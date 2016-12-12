@@ -43,7 +43,12 @@ class Home extends Controller
 
             if ( $check == 0)
             {
+
                 $this->model->register($name, $email, $pass);
+                $_SESSION['login'] = 1;
+                $_SESSION['name'] = $name;
+//                $_SESSION['id_user'] = $login['user_id'];
+                echo "thanhcong";
             }
             else{
                 echo "tachroi";

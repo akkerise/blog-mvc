@@ -17,12 +17,11 @@ class Model
 
     function login ($name, $pass)
     {
-        $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+        $sql = "SELECT * FROM users WHERE username = :username";
         try{
             $query = $this->db->prepare($sql);
             $parameters = array(
                 ":username" => $name,
-                ":password" => $pass
             );
             $query->execute($parameters);
             return $query->fetch(PDO::FETCH_ASSOC);
@@ -114,15 +113,17 @@ class Model
     // end load users
 
     // insert users
-    public function insertUser ($username, $password, $email)
+    public function insertUser ($username, $password, $email, $avatar,  $id_group)
     {
-        $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
+        $sql = "INSERT INTO users (username, password, email, avatar , id_group) VALUES (:username, :password, :email, :avatar, :id_group)";
         try{
             $query = $this->db->prepare($sql);
             $parameter = array(
                 ":username" => $username,
                 ":password" => $password,
-                ":email" => $email
+                ":email" => $email,
+                ":avatar" => $avatar,
+                ":id_group" => $id_group
             );
             return $query->execute($parameter);
         }catch (PDOException $e){
@@ -134,7 +135,7 @@ class Model
     // delete uswsers
     public function delete ($id_user)
     {
-        $sql = "DELETE FROM users WHERE id = :id_user";
+        $sql = "DELETE FROM users WHERE user_id = :id_user";
         try {
             $query = $this->db->prepare($sql);
             $parameter = array(
@@ -142,6 +143,66 @@ class Model
             );
             return $query->execute($parameter);
         }catch (PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    // thai gửi
+    public function getCategory()
+    {
+        $sql = "SELECT * FROM categories";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function createCategory($name_category, $description)
+    {
+        $sql = "INSERT INTO categories (name_category, description) VALUES (:name_category, :description)";
+        try{
+            $query = $this->db->prepare($sql);
+            $parameters = array(
+                ":name_category" => $name_category,
+                ":description" => $description
+            );
+            return $query->execute($parameters);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function getBlogAdmin()
+    {
+        $sql = "SELECT a.*, b.name_category, c.username FROM blogs a INNER JOIN categories b ON a.category_id = b.category_id INNER JOIN users c ON a.user_id = c.user_id ORDER BY a.created_at DESC";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function createBlog($title, $description, $content, $category_id, $user_id, $image)
+    {
+        $sql = "INSERT INTO blogs (title, description, content, category_id, user_id , image) VALUES (:title, :description, :content, :category_id, :user_id, :image)";
+        try{
+            $query = $this->db->prepare($sql);
+            $parameters = array(
+                ":title" => $title,
+                ":description" => $description,
+                ":content" => $content,
+                ":category_id" => $category_id,
+                ":user_id" => $user_id,
+                ":image" => $image
+
+            );
+            return $query->execute($parameters);
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }

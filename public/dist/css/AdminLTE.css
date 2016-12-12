@@ -673,6 +673,11 @@ a:focus {
 .sidebar-menu > li.header {
   white-space: nowrap;
   overflow: hidden;
+
+
+}
+#status_user {
+  height: 55px;
 }
 .sidebar-menu:hover {
   overflow: visible;

@@ -30,6 +30,7 @@
                                 <th>Username</th>
                                 <th>Password</th>
                                 <th>Email</th>
+                                <th>Quyền QT</th>
                                 <th>Avatar</th>
                                 <th>Action</th>
                             </tr>
@@ -37,19 +38,20 @@
                             <?php
                             foreach ($load_users as $r) {
                                 ?>
-                                <tbody id ="row-user-<?php echo $r['id']?>">
+                                <tbody id ="row-user-<?php echo $r['user_id']?>">
                                 <tr>
-                                    <td><?php echo $r['id'] ?></td>
+                                    <td><?php echo $r['user_id'] ?></td>
                                     <td><?php echo $r['username'] ?></td>
                                     <td><?php echo $r['password'] ?></td>
                                     <td><?php echo $r['email'] ?></td>
+                                    <td><?php echo $r['id_group'] ?></td>
                                     <td><?php echo $r['avatar'] ?></td>
                                     <td>
                                         <button class="btn btn-primary text-center btn-edit" style="min-width: 80px"
                                                 data-toggle="modal" href="#edit_users">Edit
                                         </button>
                                         <button class="btn btn-danger btn-delete" style="min-width: 80px"
-                                                onclick="showModal(<?php echo $r['id']?>)">Delete
+                                                onclick="showModal(<?php echo $r['user_id']?>)">Delete
                                         </button>
                                     </td>
                                 </tr>
@@ -77,15 +79,19 @@
                 <h4 class="modal-title">Thêm USERS</h4>
             </div>
             <div class="modal-body">
-                <form action="<?php echo URL ?>/admin/newUsers" method="post">
+                <form action="<?php echo URL ?>/admin/newUsers" method="post" enctype="multipart/form-data">
                     Username: <input type="text" name="user" id="inputID" class="form-control" value="" title=""
                                      required="required">
                     Password: <input type="password" name="pass" id="inputID" class="form-control" value="" title=""
                                      required="required">
                     Email: <input type="email" name="email" id="inputID" class="form-control" value="" title=""
                                   required="required">
-                    Avatar: <input type="text" name="name" id="inputID" class="form-control" value="" title=""
+                    Avatar: <input type="file" name="avatar" id="inputID" class="form-control" value="" title=""
                                    required="required">
+                    Phân quyền: <select id="inputID" class="form-control" name = "id_group">
+                        <option>0</option>
+                        <option>1</option>
+                    </select>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" >Đóng</button>
                         <button type="submit" class="btn btn-primary" name="save_user">Lưu</button>

@@ -172,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <button type="button" class="btn btn-primary btn-sm" onclick="login()">
                                                 Submit
                                             </button>
-                                            <a href="">Admin login</a>
+                                            <a href="<?php echo URL ?>/admin">Admin login</a>
                                         </div>
                                     </div>
                                 </form>
