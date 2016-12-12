@@ -35,7 +35,7 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="<?php echo URL ?>admin/users">
+                <a href="<?php echo URL ?>admin/users?trang=1">
                     <i class="fa fa-table"></i> <span>Users</span>
                     <span class="pull-right-container">
 <!--              <i class="fa fa-angle-left pull-right"></i>-->

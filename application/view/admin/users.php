@@ -36,7 +36,7 @@
                             </tr>
                             </thead>
                             <?php
-                            foreach ($load_users as $r) {
+                            foreach ($load_view_user as $r) {
                                 ?>
                                 <tbody id ="row-user-<?php echo $r['user_id']?>">
                                 <tr>
@@ -64,6 +64,17 @@
                     </div>
                     <!-- /.box-body -->
                 </div>
+                <div class="phan_trang">
+                    <?php
+                        for ($i = 1; $i <= $so_trang; $i++) {
+
+                    ?>
+                    <a  href="<?php echo URL ?>admin/users?trang=<?php echo $i ?>">Trang <?php echo $i ?></a>
+                    <?php
+                    }
+                    ?>
+                </div>
+                <!--                    /phân trang-->
                 <!-- /.box -->
             </div>
             <!-- /.col -->

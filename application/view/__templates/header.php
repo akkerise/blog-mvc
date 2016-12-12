@@ -184,14 +184,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <label for="email" class="col-sm-2 control-label">
                                             Name</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="namerg" placeholder="Name"/>
+                                            <input type="email" class="form-control" id="namerg" placeholder="Name" name="namerg"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">
                                             Email</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="emailrg" placeholder="Email"/>
+                                            <input type="email" class="form-control" id="emailrg" placeholder="Email" name="emailrg"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -199,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             Password</label>
                                         <div class="col-sm-10">
                                             <input type="password" class="form-control" id="passwordrg"
-                                                   placeholder="Password"/>
+                                                   placeholder="Password" name="passwordrg"/>
                                         </div>
                                     </div>
                                     <div class="row">

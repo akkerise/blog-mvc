@@ -37,13 +37,12 @@ class Home extends Controller
         if(isset($_POST['action']) == "register")
         {
             $name = $_POST['name'];
-            $pass = $_POST['pass'];
+            $pass = password_hash($_POST['pass'],PASSWORD_DEFAULT);
             $email = $_POST['email'];
             $check = $this->model->check_user($name);
 
             if ( $check == 0)
             {
-
                 $this->model->register($name, $email, $pass);
                 $_SESSION['login'] = 1;
                 $_SESSION['name'] = $name;
