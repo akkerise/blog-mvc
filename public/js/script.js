@@ -26,8 +26,10 @@ $(document).ready(function() {
         ajaxOptions:{
             type: "post"
         },
-        success: function(data) {
-            console.log(data);
+        success: function(response, newValue) {
+            if (response.status == 'error')
+                return response.msg; //msg will be shown in editable form
+            console.log(newValue);
         }
     });
 
@@ -38,7 +40,8 @@ $(document).ready(function() {
         name:  'category_description',
         title: 'Edit description',
         success: function(response, newValue) {
-            if (response.status == 'error') return response.msg; //msg will be shown in editable form
+            if (response.status == 'error')
+                return response.msg; //msg will be shown in editable form
             console.log(newValue);
         }
     });
