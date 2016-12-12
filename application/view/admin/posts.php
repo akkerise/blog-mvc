@@ -51,14 +51,14 @@
                                     <td><?php echo $totalPosts["name_category"] ?></td>
                                     <td><?php echo $totalPosts["username"] ?></td>
                                     <td>
-                                        <button class="btn btn-primary btn-edit" data-toggle="modal"
+                                        <a class="btn btn-primary btn-edit" data-toggle="modal"
                                                 href="#edit_category">Edit
-                                        </button>
+                                        </a>
                                     </td>
                                     <td>
-                                        <button class="btn btn-danger btn-delete" data-toggle="modal"
+                                        <a class="btn btn-danger btn-delete" data-toggle="modal"
                                                 href="#delete_category">Delete
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php

@@ -13,7 +13,7 @@ class Categories extends Controller
         $totalCate = $this->model->getCategory();
         require APP . "view/admin/__templates/header.php";
         require APP . "view/admin/__templates/sidebar.php";
-        require APP . "view/admin/category.php";
+        require APP . "view/admin/categories.php";
         require APP . "view/admin/__templates/footer.php";
     }
 
@@ -29,6 +29,26 @@ class Categories extends Controller
         require APP . "view/admin/__templates/header.php";
         require APP . "view/admin/__templates/sidebar.php";
         require APP . "view/admin/create_category.php";
+        require APP . "view/admin/__templates/footer.php";
+    }
+
+    public function edit_category($category_id)
+    {
+        $category = $this->model->getCategoryById($category_id);
+
+        if (isset($_POST["name"]) && $_POST["name"] === "name_category") {
+            $newName = $_POST["value"];
+            $edit = $this->model->editCategory($category_id, "name_category", $newName, '');
+            echo $edit;
+        }
+        if (isset($_POST["name"]) && $_POST["name"] === "category_description") {
+            $newDescription = $_POST["value"];
+            $edit = $this->model->editCategory($category_id, "category_description", '', $newDescription);
+            echo $edit;
+        }
+        require APP . "view/admin/__templates/header.php";
+        require APP . "view/admin/__templates/sidebar.php";
+        require APP . "view/admin/edit_category.php";
         require APP . "view/admin/__templates/footer.php";
     }
 }

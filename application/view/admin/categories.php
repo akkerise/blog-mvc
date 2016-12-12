@@ -38,19 +38,19 @@
                             <?php
                             foreach ($totalCate as $tocalCate) {
                                 ?>
-                                <tr>
+                                <tr id="row-category-<?php echo $tocalCate["category_id"] ?>">
                                     <td><?php echo $tocalCate["category_id"] ?></td>
                                     <td><?php echo $tocalCate["name_category"] ?></td>
                                     <td><?php echo $tocalCate["description"] ?></td>
                                     <td>
-                                        <button class="btn btn-primary btn-edit" data-toggle="modal"
-                                                href="#edit_category">Edit
-                                        </button>
+                                        <a class="btn btn-primary btn-edit"
+                                           href="<?php echo URL ?>categories/edit_category/<?php echo $tocalCate["category_id"] ?>" onclick="">Edit
+                                        </a>
                                     </td>
                                     <td>
-                                        <button class="btn btn-danger btn-delete" data-toggle="modal"
-                                                href="#delete_category">Delete
-                                        </button>
+                                        <a class="btn btn-danger btn-delete" data-toggle="modal"
+                                           href="#delete_category">Delete
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php
@@ -79,48 +79,6 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-<div class="modal fade" id="add_category">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Thêm danh mục</h4>
-            </div>
-            <div class="modal-body">
-                Tên danh mục: <input type="text" name="name" id="inputID" class="form-control" value="" title=""
-                                     required="required">
-                Miêu tả: <input type="text" name="name" id="inputID" class="form-control" value="" title=""
-                                required="required">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Lưu</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="modal fade" id="edit_category">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Sửa danh mục</h4>
-            </div>
-            <div class="modal-body">
-                Tên danh mục: <input type="text" name="name" id="inputID" class="form-control" value="" title=""
-                                     required="required">
-                Miêu tả: <input type="text" name="name" id="inputID" class="form-control" value="" title=""
-                                required="required">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Lưu</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 <div class="modal fade" id="delete_category">
     <div class="modal-dialog">

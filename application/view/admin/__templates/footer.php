@@ -214,6 +214,7 @@
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="<?php echo URL ?>plugins/summernote-master/dist/summernote.min.js"></script>
+<script src="<?php echo URL ?>plugins/bootstrap3-editable-1.5.1/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 <script src="<?php echo URL ?>plugins/morris/morris.min.js"></script>
 <!-- Sparkline -->
 <script src="<?php echo URL ?>plugins/sparkline/jquery.sparkline.min.js"></script>
@@ -224,9 +225,9 @@
 <script src="<?php echo URL ?>plugins/knob/jquery.knob.js"></script>
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<script src="<?php echo URL ?>plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Slimscroll -->
-<script src="vplugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="<?php echo URL ?>plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo URL ?>plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
