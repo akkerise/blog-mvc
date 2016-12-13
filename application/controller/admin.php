@@ -49,9 +49,15 @@ class Admin  extends Controller
     {
         $trang = $_GET['trang']; // lấy số trang hiện tại
         $load_users = $this->model->getUsers(); // lấy tổng số users
-        $so_users = count($load_users);
-        $so_trang = ceil($so_users / 4); //// số trang sẽ hiện
-        $trang_hien_tai = ($trang - 1)*4;
+        $so_users = count($load_users); //// số trang sẽ hiện
+        if ($so_users == 0 ) {
+            $trang_hien_tai = 1;
+            $so_trang = 1;
+        }
+        else {
+            $so_trang = ceil($so_users / 4);
+            $trang_hien_tai = ($trang - 1)*4;
+        }
         $load_view_user = $this->model->phanTrang($trang_hien_tai,4);
         require APP . "view/admin/__templates/header.php";
         require APP . "view/admin/__templates/sidebar.php";
@@ -73,7 +79,7 @@ class Admin  extends Controller
 
             if($this->model->insertUser($username, $password, $email, $avatar, $id_group)) {
                 move_uploaded_file($_FILES['avatar']['tmp_name'], $path.$_FILES['avatar']['name']);
-                header("location:" . URL . "admin/users");
+                header("location:" . URL . "admin/users?trang=1");
             }
         }
     }

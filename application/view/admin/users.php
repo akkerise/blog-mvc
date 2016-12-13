@@ -41,15 +41,13 @@
                                     <td><?php echo $r['user_id'] ?></td>
                                     <td><?php echo $r['username'] ?></td>
                                     <td><?php echo $r['email'] ?></td>
-                                    <td><?php echo $r['rule'] ?></td>
+                                    <td><?php echo $r['id_group'] ?></td>
                                     <td><img src="<?php echo URL ?>images/user/<?php echo $r['avatar'] ?>"
-                                             style="width: 150px; height: 150px"></td>
+                                             style="width: 100px; height: 100px"></td>
                                     <td>
                                         <a class="btn btn-primary text-center btn-edit" style="min-width: 80px"
                                            data-toggle="modal" href="<?php echo URL ?>users/edit_user/<?php echo $r['user_id'] ?>">Edit
                                         </a>
-                                    </td>
-                                    <td>
                                         <a class="btn btn-danger btn-delete" style="min-width: 80px"
                                            onclick="showModal(<?php echo $r['user_id'] ?>)">Delete
                                         </a>

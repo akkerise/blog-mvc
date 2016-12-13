@@ -74,4 +74,21 @@ $(document).ready(function() {
         }
     });
 
+    $('#post_content_edit').summernote({
+        height: 300,                 // set editor height
+        minHeight: null,             // set minimum height of editor
+        maxHeight: null,            // set maximum height of editor
+        focus: true                  // set focus to editable area after initializing summernote
+    });
+
+    var edit_content = $("#edit_post_content").val();
+    console.log(edit_content);
+    $('#post_content_edit').summernote('code', edit_content);
+
+    $('#edit_post').click(function () {
+        var content = $('#edit_post_content').summernote('code');
+        $('#edit_post_content').val(content);
+    })
+    $.fn.editable.defaults.mode = 'popup';
 });
+

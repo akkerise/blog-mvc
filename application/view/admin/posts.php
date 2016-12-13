@@ -46,18 +46,18 @@
                                     <td><?php echo $totalPosts["title"] ?></td>
                                     <td><?php echo $totalPosts["description"] ?></td>
 <!--                                    <td>--><?php //var_dump( $totalPosts["image"])?><!--</td>-->
-                                    <td><img src="<?php echo URL ?>public/images/blog/<?php echo $totalPosts["image"] ?>"></td>
+                                    <td class="image">
+                                        <img src="<?php echo URL ?>public/images/blog/<?php echo $totalPosts["image"] ?>" style="max-width: 150px; max-height: 150px">
+                                    </td>
 
                                     <td><?php echo $totalPosts["name_category"] ?></td>
                                     <td><?php echo $totalPosts["username"] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-edit" data-toggle="modal"
-                                                href="#edit_category">Edit
+                                                href="<?php echo URL ?>posts/view_edit_post/<?php echo $totalPosts["blog_id"] ?>" id="edit_post" onclick="edit_post(<?php echo $totalPosts["blog_id"] ?>)">Edit
                                         </a>
-                                    </td>
-                                    <td>
                                         <a class="btn btn-danger btn-delete" data-toggle="modal"
-                                                href="#delete_category">Delete
+                                           href="#delete_category">Delete
                                         </a>
                                     </td>
                                 </tr>

@@ -269,4 +269,57 @@ class Model
         }
 
     }
+
+
+    // get blog
+    public function getOneBlog ($blog_id)
+    {
+        $sql = "SELECT * FROM blogs WHERE blog_id = :blog_id";
+        try {
+            $query = $this->db->prepare($sql);
+            $parameters = array(
+                ":blog_id"=>$blog_id
+            );
+            $query->execute($parameters);
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    // update chi tiết blog
+    public function edit_blog ($title, $description, $content, $image, $user_id, $category_id )
+    {
+        $sql = "UPDATE blogs SET title = :title, description = :description, content = :content, category_id = :category_id, user_id = :user_id,  image = :image";
+        try {
+            $query = $this->db->prepare($sql);
+            $parameters = array(
+                ":title" => $title,
+                ":description" => $description,
+                ":content"=> $content,
+                ":image"=> $image,
+                ":user_id"=> $user_id,
+                ":category_id"=> $category_id
+            );
+            $query->execute($parameters);
+        }catch (PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    // get name category_id blog
+//    public function get_category_blog ($category_id)
+//    {
+//        $sql = "SELECT * FROM categoties WHERE category_id = :category_id";
+//        try{
+//            $query = $this->db->prepare($sql);
+//            $parameters = array(
+//              ":category_id" => $category_id
+//            );
+//            $query->execute($parameters);
+//            return $query->fetch(PDO::FETCH_ASSOC);
+//        }catch (PDOException $e){
+//            $e->getMessage();
+//        }
+//    }
 }

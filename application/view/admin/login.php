@@ -33,7 +33,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form action="<?php echo URL ?>/admin/login" method="post">
+        <form action="<?php echo URL ?>admin/login" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Email" name="name_ad">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
