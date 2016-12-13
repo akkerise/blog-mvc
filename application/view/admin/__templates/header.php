@@ -256,13 +256,13 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <?php $_SESSION['avatar'] ?>
-                            <img src="<?php echo URL ?>images/avatar/<?php echo $_SESSION['avatar']?>" class="user-image" alt="User Image">
+                            <img src="<?php echo URL ?>images/user/<?php echo $_SESSION['avatar']?>" class="user-image" alt="User Image">
                             <span class="hidden-xs"><?php  echo $_SESSION['name']?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="<?php echo URL ?>images/avatar/<?php echo $_SESSION['avatar']?>" class="img-circle" alt="User Image">
+                                <img src="<?php echo URL ?>images/user/<?php echo $_SESSION['avatar']?>" class="img-circle" alt="User Image">
 
                                 <p>
                                     <?php  echo $_SESSION['name']?>
