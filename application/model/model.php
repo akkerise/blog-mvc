@@ -146,7 +146,7 @@ class Model
 
     public function editUser($user_id, $id_group)
     {
-        $sql = "UPDATE user SET id_group = $id_group WHERE user_id = $user_id";
+        $sql = "UPDATE users SET id_group = $id_group WHERE user_id = $user_id";
         try{
             $query = $this->db->prepare($sql);
             $query->execute();
@@ -270,9 +270,20 @@ class Model
                 ":category_id" => $category_id,
                 ":user_id" => $user_id,
                 ":image" => $image
-
             );
             return $query->execute($parameters);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function getComments()
+    {
+        $sql = "SELECT a.*, b.username, c.title FROM comments a INNER JOIN users b ON a.user_id = b.user_id INNER JOIN blogs c ON a.blog_id = c.blog_id ORDER BY created_at DESC";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
         }catch(PDOException $e){
             echo $e->getMessage();
         }

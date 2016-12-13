@@ -39,7 +39,7 @@ $(document).ready(function() {
     $('#add_post').click(function () {
         var content = $('#post_content_create').summernote('code');
         $('#post_content').val(content);
-    })
+    });
 
     $.fn.editable.defaults.mode = 'popup';
 
@@ -52,9 +52,6 @@ $(document).ready(function() {
         pk: id,
         name:  'name_category',
         title: 'Edit category',
-        ajaxOptions:{
-            type: "post"
-        },
         success: function(response, newValue) {
             if (response.status == 'error')
                 return response.msg; //msg will be shown in editable form
@@ -80,14 +77,14 @@ $(document).ready(function() {
     //make rule user editable
     $('#rule').editable({
         type: "select",
-        url: "http://localhost/blog-mvc/categories/edit_user/" + user_id,
+        url: "http://localhost/blog-mvc/users/edit_user/" + user_id,
         pk: user_id,
         name:  'rule',
         title: 'Edit rule',
         value : group_id,
         source: [
             {value: 0, text: 'Dân thường'},
-            {value: 1, text: 'Dân chơi'},
+            {value: 1, text: 'Dân chơi'}
         ],
         success: function(response, newValue) {
             if (response.status == 'error')

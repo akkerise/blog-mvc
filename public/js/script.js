@@ -46,6 +46,15 @@ function register() {
                 $("#username").html(html);
                 $("#myModal").modal("toggle");
             }
+        },
+        beforeSend: function () {
+
+            $('.modal-dialog').css('opacity',0.85);
+            $('.overlay-loader').css('display','block');
+        },
+        complete: function () {
+            $('.modal-dialog').css('opacity',1);
+            $('.overlay-loader').css('display','none');
         }
 
     })

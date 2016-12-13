@@ -34,6 +34,7 @@
                                 <th>Images</th>
                                 <th>Category</th>
                                 <th>User</th>
+                                <th>Views</th>
                                 <th colspan="2" class="text-center">Action</th>
                             </tr>
                             </thead>
@@ -45,11 +46,11 @@
                                     <td><?php echo $totalPosts["blog_id"] ?></td>
                                     <td><?php echo $totalPosts["title"] ?></td>
                                     <td><?php echo $totalPosts["description"] ?></td>
-<!--                                    <td>--><?php //var_dump( $totalPosts["image"])?><!--</td>-->
-                                    <td><img src="<?php echo URL ?>public/images/blog/<?php echo $totalPosts["image"] ?>"></td>
+                                    <td><img src="<?php echo URL ?>public/images/blog/<?php echo $totalPosts["image"] ?>" style="width: 200px; height: 150px;"></td>
 
                                     <td><?php echo $totalPosts["name_category"] ?></td>
                                     <td><?php echo $totalPosts["username"] ?></td>
+                                    <td><?php echo $totalPosts["views"] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-edit" data-toggle="modal"
                                                 href="#edit_category">Edit

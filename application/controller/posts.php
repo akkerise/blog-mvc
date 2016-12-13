@@ -33,4 +33,13 @@ class Posts extends Controller
         require APP . "view/admin/create_post.php";
         require APP . "view/admin/__templates/footer.php";
     }
+
+    public function comments()
+    {
+        $totalComments = $this->model->getComments();
+        require APP . "view/admin/__templates/header.php";
+        require APP . "view/admin/__templates/sidebar.php";
+        require APP . "view/admin/comments.php";
+        require APP . "view/admin/__templates/footer.php";
+    }
 }
