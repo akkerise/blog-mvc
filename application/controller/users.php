@@ -37,10 +37,13 @@ class Users extends Controller
     public function edit_user($user_id)
     {
         $user = $this->model->getUserById($user_id);
-        if (isset($_POST["name"]) && $_POST["name"] == "rule") {
+
+        if (isset($_POST["name"]) && $_POST["name"] === "rule") {
             $newRule = $_POST["value"];
             $edit = $this->model->editUser($user_id, $newRule);
             echo $edit;
+        } else {
+            echo "abc";
         }
         require APP . "view/admin/__templates/header.php";
         require APP . "view/admin/__templates/sidebar.php";

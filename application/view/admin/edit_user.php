@@ -36,8 +36,8 @@
                             <tbody>
                             <tr>
                                 <td id="user_id"><?php echo $user["user_id"] ?></td>
-                                <td><a href="#" id="username"><?php echo $user["username"] ?></a></td>
-                                <td><a href="#" id="email"><?php echo $user["email"] ?></a></td>
+                                <td><?php echo $user["username"] ?></td>
+                                <td><?php echo $user["email"] ?></td>
                                 <td><a href="#" id="rule"><?php echo $user["rule"] ?></a></td>
                                 <td style="display: none" id="group_id"><?php echo $user["id_group"] ?></td>
                             </tr>

@@ -62,4 +62,13 @@ class Posts extends Controller
 //            }
         }
     }
+
+    public function comments()
+    {
+        $totalComments = $this->model->getComments();
+        require APP . "view/admin/__templates/header.php";
+        require APP . "view/admin/__templates/sidebar.php";
+        require APP . "view/admin/comments.php";
+        require APP . "view/admin/__templates/footer.php";
+    }
 }

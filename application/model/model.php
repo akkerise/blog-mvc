@@ -13,25 +13,23 @@ class Model
             exit('Database connection could not be established.');
         }
     }
-
     // login
 
-    function login($name, $pass)
+    function login ($name, $pass)
     {
         $sql = "SELECT * FROM users WHERE username = :username";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $parameters = array(
                 ":username" => $name,
             );
             $query->execute($parameters);
             return $query->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
-
-    public function check_user($namerg)
+    public function check_user ($namerg)
     {
         $sql = "SELECT * FROM users WHERE username = :namerg";
         try {
@@ -41,15 +39,14 @@ class Model
             );
             $query->execute($paramerers);
             return $query->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }catch (PDOException $e){
             echo $e->getMessage();
         }
     }
-
-    function register($name, $email, $pass)
+    function register ($name, $email, $pass)
     {
         $sql = "INSERT INTO users ( username, password, email ) VALUES (:username, :password, :email)";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $paramerers = array(
                 ":username" => $name,
@@ -57,23 +54,22 @@ class Model
                 ":email" => $email
             );
             $query->execute($paramerers);
-//            echo $id =  $this->db->lastInsertId();
-        } catch (PDOException $e) {
+            $this->db->lastInsertId();
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
-
     public function getHome($id_cate, $limit)
     {
         $sql = "SELECT * FROM blogs a INNER JOIN categories b ON a.category_id = b.category_id INNER JOIN users c ON c.user_id = a.user_id  WHERE a.category_id = $id_cate ORDER BY a.blog_id DESC LIMIT $limit";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $query->execute();
             if ($limit == 1) {
                 return $query->fetch(PDO::FETCH_ASSOC);
             }
             return $query->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -81,11 +77,11 @@ class Model
     public function getBlog($id_cate, $limit = 6, $page = 1)
     {
         $sql = "SELECT * FROM blogs WHERE category_id = $id_cate ORDER BY created_at DESC" . " LIMIT " . (($page - 1) * $limit) . "," . $limit;
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -93,11 +89,11 @@ class Model
     public function getTotal($id_cate)
     {
         $sql = "SELECT COUNT(*) as total_blogs FROM blogs WHERE category_id = $id_cate";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -105,22 +101,34 @@ class Model
     // load users
     public function getUsers()
     {
-        $sql = "SELECT * FROM users";
-        try {
+        $sql = "SELECT a.*, b.rule FROM users a INNER JOIN rule_users b ON a.id_group = b.id_group";
+        try{
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }catch (PDOException $e){
             echo $e->getMessage();
         }
     }
     // end load users
 
+    public function getUserById($user_id)
+    {
+        $sql = "SELECT a.*, b.rule FROM users a INNER JOIN rule_users b ON a.id_group = b.id_group WHERE user_id = $user_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
     // insert users
-    public function insertUser($username, $password, $email, $avatar, $id_group)
+    public function insertUser ($username, $password, $email, $avatar,  $id_group)
     {
         $sql = "INSERT INTO users (username, password, email, avatar , id_group) VALUES (:username, :password, :email, :avatar, :id_group)";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $parameter = array(
                 ":username" => $username,
@@ -130,23 +138,35 @@ class Model
                 ":id_group" => $id_group
             );
             return $query->execute($parameter);
-        } catch (PDOException $e) {
+        }catch (PDOException $e){
             echo $e->getMessage();
         }
     }
     // end insert users
 
+    public function editUser($user_id, $id_group)
+    {
+        $sql = "UPDATE users SET id_group = $id_group WHERE user_id = $user_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            echo $id_group;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
     // delete uswsers
-    public function delete($id_user)
+    public function delete ($id_user)
     {
         $sql = "DELETE FROM users WHERE user_id = :id_user";
         try {
             $query = $this->db->prepare($sql);
             $parameter = array(
-                ":id_user" => $id_user
+              ":id_user" => $id_user
             );
             return $query->execute($parameter);
-        } catch (PDOException $e) {
+        }catch (PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -155,11 +175,11 @@ class Model
     public function getCategory()
     {
         $sql = "SELECT * FROM categories";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -167,11 +187,11 @@ class Model
     public function getCategoryById($category_id)
     {
         $sql = "SELECT * FROM categories WHERE category_id = $category_id";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -179,14 +199,14 @@ class Model
     public function createCategory($name_category, $description)
     {
         $sql = "INSERT INTO categories (name_category, description) VALUES (:name_category, :description)";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $parameters = array(
                 ":name_category" => $name_category,
                 ":description" => $description
             );
             return $query->execute($parameters);
-        } catch (PDOException $e) {
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -197,27 +217,27 @@ class Model
         switch ($type) {
             case "name_category":
                 $sql = "UPDATE categories SET name_category = :name_category WHERE category_id = $category_id";
-                try {
+                try{
                     $query = $this->db->prepare($sql);
                     $parameters = array(
                         ":name_category" => $name_category
                     );
                     $query->execute($parameters);
                     return $name_category;
-                } catch (PDOException $e) {
+                }catch(PDOException $e){
                     echo $e->getMessage();
                 }
                 break;
             case "category_description":
                 $sql = "UPDATE categories SET description = :description WHERE category_id = $category_id";
-                try {
+                try{
                     $query = $this->db->prepare($sql);
                     $parameters = array(
                         ":description" => $description
                     );
                     $query->execute($parameters);
                     return $description;
-                } catch (PDOException $e) {
+                }catch(PDOException $e){
                     echo $e->getMessage();
                 }
                 break;
@@ -229,11 +249,11 @@ class Model
     public function getBlogAdmin()
     {
         $sql = "SELECT a.*, b.name_category, c.username FROM blogs a INNER JOIN categories b ON a.category_id = b.category_id INNER JOIN users c ON a.user_id = c.user_id ORDER BY a.created_at DESC";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -241,7 +261,7 @@ class Model
     public function createBlog($title, $description, $content, $category_id, $user_id, $image)
     {
         $sql = "INSERT INTO blogs (title, description, content, category_id, user_id , image) VALUES (:title, :description, :content, :category_id, :user_id, :image)";
-        try {
+        try{
             $query = $this->db->prepare($sql);
             $parameters = array(
                 ":title" => $title,
@@ -253,7 +273,7 @@ class Model
 
             );
             return $query->execute($parameters);
-        } catch (PDOException $e) {
+        }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
@@ -322,4 +342,16 @@ class Model
 //            $e->getMessage();
 //        }
 //    }
+
+    public function getComments()
+    {
+        $sql = "SELECT a.*, b.username, c.title FROM comments a INNER JOIN users b ON a.user_id = b.user_id INNER JOIN blogs c ON a.blog_id = c.blog_id ORDER BY created_at DESC";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 }

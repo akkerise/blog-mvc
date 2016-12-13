@@ -54,10 +54,12 @@
                                     <td><?php echo $totalPosts["username"] ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-edit" data-toggle="modal"
-                                                href="<?php echo URL ?>posts/view_edit_post/<?php echo $totalPosts["blog_id"] ?>" id="edit_post" onclick="edit_post(<?php echo $totalPosts["blog_id"] ?>)">Edit
+                                                href="#edit_category">Edit
                                         </a>
+                                    </td>
+                                    <td>
                                         <a class="btn btn-danger btn-delete" data-toggle="modal"
-                                           href="#delete_category">Delete
+                                                href="#delete_category">Delete
                                         </a>
                                     </td>
                                 </tr>

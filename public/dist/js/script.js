@@ -39,7 +39,8 @@ $(document).ready(function() {
     $('#add_post').click(function () {
         var content = $('#post_content_create').summernote('code');
         $('#post_content').val(content);
-    })
+    });
+
     $.fn.editable.defaults.mode = 'popup';
 
     var id = $("#category_id").text();
@@ -74,11 +75,25 @@ $(document).ready(function() {
         }
     });
 
-    $('#post_content_edit').summernote({
-        height: 300,                 // set editor height
-        minHeight: null,             // set minimum height of editor
-        maxHeight: null,            // set maximum height of editor
-        focus: true                  // set focus to editable area after initializing summernote
+    var user_id = $("#user_id").text();
+    var group_id = $("#group_id").text();
+    //make rule user editable
+    $('#rule').editable({
+        type: "select",
+        url: "http://localhost/blog-mvc/users/edit_user/" + user_id,
+        pk: user_id,
+        name:  'rule',
+        title: 'Edit rule',
+        value : group_id,
+        source: [
+            {value: 0, text: 'Dân thường'},
+            {value: 1, text: 'Dân chơi'}
+        ],
+        success: function(response, newValue) {
+            if (response.status == 'error')
+                return response.msg; //msg will be shown in editable form
+            console.log(newValue);
+        }
     });
 
     var edit_content = $("#edit_post_content").val();
@@ -91,4 +106,3 @@ $(document).ready(function() {
     })
     $.fn.editable.defaults.mode = 'popup';
 });
-

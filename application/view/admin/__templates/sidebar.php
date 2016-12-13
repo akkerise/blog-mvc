@@ -26,6 +26,19 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
 
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Posts</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="active"><a href="<?php echo URL ?>posts"><i class="fa fa-circle-o"></i>Posts</a></li>
+                    <li><a href="<?php echo URL ?>posts/comments"><i class="fa fa-circle-o"></i>Comments</a></li>
+                </ul>
+            </li>
+
             <li>
                 <a href="<?php echo URL ?>categories">
                     <i class="fa fa-th"></i> <span>Categories</span>
@@ -38,21 +51,20 @@
                 <a href="<?php echo URL ?>admin/users?trang=1">
                     <i class="fa fa-table"></i> <span>Users</span>
                     <span class="pull-right-container">
-<!--              <i class="fa fa-angle-left pull-right"></i>-->
             </span>
                 </a>
 
             </li>
-            <li>
-                <a href="<?php echo URL ?>posts">
-                    <i class="fa fa-calendar"></i> <span>Posts</span>
-                    <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-                </a>
-            </li>
 
+<!--            <li>-->
+<!--                <a href="--><?php //echo URL ?><!--posts">-->
+<!--                    <i class="fa fa-calendar"></i> <span>Posts</span>-->
+<!--                    <span class="pull-right-container">-->
+<!--              <small class="label pull-right bg-red">3</small>-->
+<!--              <small class="label pull-right bg-blue">17</small>-->
+<!--            </span>-->
+<!--                </a>-->
+<!--            </li>-->
 
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
