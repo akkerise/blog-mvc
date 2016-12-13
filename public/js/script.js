@@ -33,7 +33,6 @@ function register() {
         url:"http://localhost/blog-mvc/home/register",
         data: {name: name, email: email, pass: pass, action: "register"},
         success: function (data) {
-            console.log(data);
             if (data == "thanhcong"){
 
                 var html = "<div class='btn-group'> " +
