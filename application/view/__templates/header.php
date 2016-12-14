@@ -98,11 +98,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <?php
                     if (isset($_SESSION['login']))
                     {
-                        echo "<div class='btn-group logout'> <button type='button' class='btn button_logout'>". "Xin chào: " . $_SESSION['name']."</button> 
+                        echo "<div class='btn-group logout'> <button type='button' class='btn button_logout'>". "Xin chào: " . $_SESSION['username']."</button> 
                             <button type= 'button' class='btn button_logout dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> 
                             <span class='caret'></span> <span class='sr-only'>Toggle Dropdown</span></button> 
                             <ul class='dropdown-menu menu_user'> 
-                            <li><a href='#' onclick= 'logout()' >Đăng xuất</a></li> 
+                            <li><a href='#' onclick= 'logout()' >Logout</a></li> 
                             <li><a href='#' >aaaaaaaa</a></li> </ul> </div>";
                     }
                     else
@@ -161,12 +161,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane active" id="Login">
+                                <p class="errorLog" style="color: #990000; text-align: center;"></p>
                                 <form role="form" class="form-horizontal" action="">
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">
-                                            Email</label>
+                                            Username</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="email1" placeholder="Email"
+                                            <input type="text" class="form-control" id="usernameLog" placeholder="Email"
                                                    name="email"/>
                                         </div>
                                     </div>
@@ -174,7 +175,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <label for="exampleInputPassword1" class="col-sm-2 control-label">
                                             Password</label>
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                            <input type="password" class="form-control" id="passwordLog"
                                                    placeholder="Email" name="password"/>
                                         </div>
                                     </div>
@@ -183,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                         <div class="col-sm-10">
                                             <button type="button" class="btn btn-primary btn-sm" onclick="login()">
-                                                Submit
+                                                Login
                                             </button>
                                             <a href="<?php echo URL ?>/admin">Admin login</a>
                                         </div>
@@ -191,13 +192,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </form>
                             </div>
                             <div class="tab-pane" id="Registration">
+                                <p class="error" style="color: #990000; text-align: center;"></p>
                                 <form role="form" class="form-horizontal">
 
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">
-                                            Name</label>
+                                            Username</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="namerg" placeholder="Name"/>
+                                            <input type="text" class="form-control" id="namerg" placeholder="Username"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -220,7 +222,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                         <div class="col-sm-10">
                                             <button type="button" class="btn btn-primary btn-sm" onclick="register()">
-                                                Save & Continue
+                                                Register
                                             </button>
                                             <button type="button" class="btn btn-default btn-sm">
                                                 Cancel
