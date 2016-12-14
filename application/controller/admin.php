@@ -8,22 +8,25 @@ class Admin  extends Controller
 
     }
 
-    public function login ()
+    public function login()
     {
         if (isset($_POST['login_ad']))
         {
-            $name = $_POST['name_ad'];
-            $pass = $_POST['pass_ad'];
-            $login = $this->model->login($name,$pass);
+            $username = $_POST['name_ad'];
+            $password = $_POST['pass_ad'];
+            $login = $this->model->login($username, $password);
             if ($login['id_group'] == 1)
             {
-                if (password_verify($login['password'], PASSWORD_DEFAULT) == $name)
-                $_SESSION['login'] = 1;
-                $_SESSION['name'] = $login['username'];
-                $_SESSION['id_user'] = $login['user_id'];
-                $_SESSION['avatar'] = $login['avatar'];
-                $_SESSION['created_at'] = $login['created_at'];
-                header("location:" . URL . "admin/index_view");
+                if (password_verify($password, $login['password'])) {
+                    $_SESSION['login'] = 1;
+                    $_SESSION['name'] = $login['username'];
+                    $_SESSION['id_user'] = $login['user_id'];
+                    $_SESSION['avatar'] = $login['avatar'];
+                    $_SESSION['created_at'] = $login['created_at'];
+                    header("location:" . URL . "admin/index_view");
+                } else {
+                    header("location:" . URL . "admin");
+                }
             }
             else {
                 header("location:" . URL . "admin");

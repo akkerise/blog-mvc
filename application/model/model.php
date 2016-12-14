@@ -15,35 +15,29 @@ class Model
     }
     // login
 
-    function login ($name, $pass)
+    function login($username, $password)
     {
-        $sql = "SELECT * FROM users WHERE username = :username";
+        $sql = "SELECT * FROM users WHERE username = '$username'";
         try{
             $query = $this->db->prepare($sql);
-            $parameters = array(
-                ":username" => $name,
-            );
-            $query->execute($parameters);
+            $query->execute();
             return $query->fetch(PDO::FETCH_ASSOC);
         }catch(PDOException $e){
             echo $e->getMessage();
         }
     }
-    public function check_user($namerg)
+    public function check_user($username)
     {
-        $sql = "SELECT * FROM users WHERE username = :namerg";
+        $sql = "SELECT * FROM users WHERE username = $username";
         try {
             $query = $this->db->prepare($sql);
-            $paramerers = array(
-                ":namerg" => $namerg
-            );
-            $query->execute($paramerers);
+            $query->execute();
             return $query->fetch(PDO::FETCH_ASSOC);
         }catch (PDOException $e){
             echo $e->getMessage();
         }
     }
-    function register ($name, $email, $pass)
+    function register($name, $email, $pass)
     {
         $sql = "INSERT INTO users ( username, password, email, avatar ) VALUES (:username, :password, :email, :avatar)";
         try{

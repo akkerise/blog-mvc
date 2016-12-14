@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
+            Users
             <small>Control panel</small>
         </h1>
         <ol class="breadcrumb">
@@ -15,7 +15,7 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Danh sách thể loại</h3>
+                        <h3 class="box-title">Danh sách người dùng</h3>
                         <button class="btn btn-info" data-toggle="modal" href="#add_users"
                                 style="float: right; margin-right: 50px; width: 150px;font-size: 14px;padding: 2px;">ADD
                         </button>
@@ -89,8 +89,8 @@
                     Avatar: <input type="file" name="avatar" id="inputID" class="form-control" value="" title=""
                                    required="required">
                     Phân quyền: <select id="inputID" class="form-control" name="id_group">
-                        <option>0</option>
-                        <option>1</option>
+                        <option value="0">Dân thường</option>
+                        <option value="1">Dân chơi</option>
                     </select>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
