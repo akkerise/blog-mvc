@@ -14,20 +14,23 @@ class Admin  extends Controller
         {
             $name = $_POST['name_ad'];
             $pass = $_POST['pass_ad'];
-            $login = $this->model->login($name,$pass);
+            $login = $this->model->login($name);
+            var_dump(password_verify ($pass, $login['password']));
             if ($login['id_group'] == 1)
             {
-                if ( password_verify($login['password'], PASSWORD_DEFAULT) == $name)
-                $_SESSION['login'] = 1;
-                $_SESSION['name'] = $login['username'];
-                $_SESSION['id_user'] = $login['user_id'];
-                $_SESSION['avatar'] = $login['avatar'];
-                $_SESSION['created_at'] = $login['created_at'];
-                header("location:" . URL . "admin/index_view");
+                if ( password_verify($pass , $login['password'])) {
+                    $_SESSION['login'] = 1;
+                    $_SESSION['name'] = $login['username'];
+                    $_SESSION['id_user'] = $login['user_id'];
+                    $_SESSION['avatar'] = $login['avatar'];
+                    $_SESSION['created_at'] = $login['created_at'];
+                    header("location:" . URL . "admin/index_view");
+                }
+                else {
+                    header("location:" . URL );
+                }
             }
-            else {
-                header("location:" . URL . "admin");
-            }
+
         }
     }
     public function index_view()
@@ -45,49 +48,8 @@ class Admin  extends Controller
         require APP . "view/admin/category.php";
         require APP . "view/admin/__templates/footer.php";
     }
-    public function users ()
-    {
-        $trang = $_GET['trang']; // lấy số trang hiện tại
-        $load_users = $this->model->getUsers(); // lấy tổng số users
-        $so_users = count($load_users); //// số trang sẽ hiện
-        if ($so_users == 0 ) {
-            $trang_hien_tai = 1;
-            $so_trang = 1;
-        }
-        else {
-            $so_trang = ceil($so_users / 4);
-            $trang_hien_tai = ($trang - 1)*4;
-        }
-        $load_view_user = $this->model->phanTrang($trang_hien_tai,4);
-        require APP . "view/admin/__templates/header.php";
-        require APP . "view/admin/__templates/sidebar.php";
-        require APP . "view/admin/users.php";
-        require APP . "view/admin/__templates/footer.php";
-    }
-    public function newUsers ()
-    {
-        if (isset($_POST['save_user']))
-        {
-            $path = 'C://xampp/htdocs/blog-mvc/public/images/avatar/';
-            $username = $_POST['user'];
-            $password = password_hash($_POST['pass'],PASSWORD_DEFAULT);
-            $email = $_POST['email'];
-            $avatar = $_FILES['avatar']['name'];
-            $id_group = $_POST['id_group'];
-//            var_dump($id_group);
-//            exit();
 
-            if($this->model->insertUser($username, $password, $email, $avatar, $id_group)) {
-                move_uploaded_file($_FILES['avatar']['tmp_name'], $path.$_FILES['avatar']['name']);
-                header("location:" . URL . "admin/users?trang=1");
-            }
-        }
-    }
-    public function phanTrang ()
-    {
-        $users = $this->model->phanTrang();
-        var_dump($users);
-    }
+
     public function delete ()
     {
         if (isset($_POST['action']) == "delete")

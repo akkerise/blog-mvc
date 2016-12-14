@@ -62,17 +62,13 @@
                     </div>
                     <!-- /.box-body -->
                 </div>
-                <div class="phan_trang">
-                    <?php
-                        for ($i = 1; $i <= $so_trang; $i++) {
-
-                    ?>
-                    <a  href="<?php echo URL ?>admin/users?trang=<?php echo $i ?>">Trang <?php echo $i ?></a>
-                    <?php
-                    }
-                    ?>
-                </div>
-                <!--                    /phân trang-->
+                <a href="<?php echo URL ?>users?trang=<?php
+                if ($trang < $so_trang){
+                    echo $trang + 1;
+                }else {
+                    echo $so_trang;
+                }
+                ?>" class="btn btn-primary" >Xem thêm</a>
                 <!-- /.box -->
             </div>
             <!-- /.col -->
@@ -88,7 +84,7 @@
                 <h4 class="modal-title">Thêm USERS</h4>
             </div>
             <div class="modal-body">
-                <form action="<?php echo URL ?>/admin/newUsers" method="post" enctype="multipart/form-data">
+                <form action="<?php echo URL ?>users/newUsers" method="post" enctype="multipart/form-data">
                     Username: <input type="text" name="user" id="inputID" class="form-control" value="" title=""
                                      required="required">
                     Password: <input type="password" name="pass" id="inputID" class="form-control" value="" title=""

@@ -34,7 +34,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="<?php echo URL ?>posts"><i class="fa fa-circle-o"></i>Posts</a></li>
+                    <li class="active"><a href="<?php echo URL ?>posts?trang=1"><i class="fa fa-circle-o"></i>Posts</a></li>
                     <li><a href="<?php echo URL ?>posts/comments"><i class="fa fa-circle-o"></i>Comments</a></li>
                 </ul>
             </li>
@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="<?php echo URL ?>admin/users?trang=1">
+                <a href="<?php echo URL ?>users?trang=1">
                     <i class="fa fa-table"></i> <span>Users</span>
                     <span class="pull-right-container">
             </span>

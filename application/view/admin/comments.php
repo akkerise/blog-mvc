@@ -1,3 +1,4 @@
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -41,7 +42,7 @@
                                 <tr id="row-comment-<?php echo $totalComments["blog_id"] ?>">
                                     <td><?php echo $totalComments["comment_id"] ?></td>
                                     <td><?php echo $totalComments["comment"] ?></td>
-                                    <td><?php echo $totalComments["created_at"] ?></td>
+                                    <td><?php echo $totalComments["date"] ?></td>
                                     <td><?php echo $totalComments["username"] ?></td>
                                     <td><?php echo $totalComments["title"] ?></td>
                                 </tr>

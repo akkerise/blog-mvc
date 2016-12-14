@@ -8,13 +8,39 @@
  */
 class Users extends Controller
 {
-    public function index()
+//    public function index()
+//    {
+//        $load_users = $this->model->getUsers();
+//        require APP . "view/admin/__templates/header.php";
+//        require APP . "view/admin/__templates/sidebar.php";
+//        require APP . "view/admin/users.php";
+//        require APP . "view/admin/__templates/footer.php";
+//    }
+    public function index ()
     {
-        $load_users = $this->model->getUsers();
+        $table = "users";
+        $trang = $_GET['trang']; // lấy số trang hiện tại
+        $load_users = $this->model->getUsers(); // lấy users
+        $so_users = count($load_users); // đếm số user
+        $so_trang = ceil($so_users / 4);
+        if ($so_users < 4 ) {
+            $trang_hien_tai = 0;
+            $so_trang = 1;
+        }
+        else {
+            $trang_hien_tai = ($trang - 1)*4;
+        }
+        $load_view_user = $this->model->phanTrang($table,$trang_hien_tai,4);
         require APP . "view/admin/__templates/header.php";
         require APP . "view/admin/__templates/sidebar.php";
         require APP . "view/admin/users.php";
         require APP . "view/admin/__templates/footer.php";
+    }
+
+    public function phanTrang ()
+    {
+        $users = $this->model->phanTrang();
+        var_dump($users);
     }
 
     public function newUsers()
@@ -29,7 +55,7 @@ class Users extends Controller
 
             if ($this->model->insertUser($username, $password, $email, $avatar, $id_group)) {
                 move_uploaded_file($_FILES['avatar']['tmp_name'], $path . $_FILES['avatar']['name']);
-                header("location:" . URL . "admin/users");
+                header("location:" . URL . "users?trang=1");
             }
         }
     }
