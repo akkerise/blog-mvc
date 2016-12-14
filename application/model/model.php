@@ -29,7 +29,7 @@ class Model
             echo $e->getMessage();
         }
     }
-    public function check_user ($namerg)
+    public function check_user($namerg)
     {
         $sql = "SELECT * FROM users WHERE username = :namerg";
         try {
@@ -45,13 +45,14 @@ class Model
     }
     function register ($name, $email, $pass)
     {
-        $sql = "INSERT INTO users ( username, password, email ) VALUES (:username, :password, :email)";
+        $sql = "INSERT INTO users ( username, password, email, avatar ) VALUES (:username, :password, :email, :avatar)";
         try{
             $query = $this->db->prepare($sql);
             $paramerers = array(
                 ":username" => $name,
                 ":password" => $pass,
-                ":email" => $email
+                ":email" => $email,
+                ":avatar" => "anonymous.png"
             );
             $query->execute($paramerers);
             $this->db->lastInsertId();
@@ -157,7 +158,7 @@ class Model
     }
 
     // delete uswsers
-    public function delete ($id_user)
+    public function delete($id_user)
     {
         $sql = "DELETE FROM users WHERE user_id = :id_user";
         try {

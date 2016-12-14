@@ -52,4 +52,9 @@ class Helper
         return $raw_sql;
     }
 
+    static function setError($name, $value)
+    {
+        $_SESSION['error'][$name] = $value;
+    }
+
 }
