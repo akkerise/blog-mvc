@@ -12,7 +12,7 @@ function delete_user ()
     var id_user = $("#id_user_DL").val();
     $.ajax({
         method: "post",
-        url: "http://localhost/blog-mvc/admin/delete",
+        url: "http://localhost/blog-mvc/users/delete",
         data: {
             id: id_user,
             action: "delete"
@@ -26,6 +26,32 @@ function delete_user ()
         }
     })
     $("#delete_users").modal("toggle");
+}
+
+// post
+function showModal_post (id) {
+    $("#delete_posts").modal();
+    $("#id_post").val(id);
+}
+function delete_post ()
+{
+    var id_post = $("#id_post").val();
+    $.ajax({
+        method: "post",
+        url: "http://localhost/blog-mvc/posts/delete",
+        data: {
+            id: id_post,
+            action: "delete"
+        },
+        success: function (data) {
+
+            if (data = "delete_thanhcong")
+            {
+                $("#row-post-" + id_post ).remove()
+            }
+        }
+    })
+    $("#delete_posts").modal("toggle");
 }
 $(document).ready(function() {
 
@@ -52,6 +78,9 @@ $(document).ready(function() {
         pk: id,
         name:  'name_category',
         title: 'Edit category',
+        ajaxOptions:{
+            type: "post"
+        },
         success: function(response, newValue) {
             if (response.status == 'error')
                 return response.msg; //msg will be shown in editable form
@@ -93,4 +122,12 @@ $(document).ready(function() {
         }
     });
 
+    var edit_content = $("#edit_post_content").val();
+    $('#post_content_edit').summernote('code', edit_content);
+
+    $('#edit_post').click(function () {
+        var content = $('#post_content_edit').summernote('code');
+        $('#edit_post_content').val(content);
+    })
+    // $.fn.editable.defaults.mode = 'popup';
 });

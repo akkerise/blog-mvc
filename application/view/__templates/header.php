@@ -102,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <button type= 'button' class='btn button_logout dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'> 
                             <span class='caret'></span> <span class='sr-only'>Toggle Dropdown</span></button> 
                             <ul class='dropdown-menu menu_user'> 
-                            <li><a href='#' onclick= 'logout()' >Logout</a></li> 
+                            <li><a href='#' onclick= 'logout()' >Đăng xuất</a></li> 
                             <li><a href='#' >aaaaaaaa</a></li> </ul> </div>";
                     }
                     else
@@ -147,8 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     ×
                 </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    Login/Registration - <a href="http://www.jquery2dotnet.com">jquery2dotnet.com</a></h4>
+                <h4 class="modal-title" id="myModalLabel">Login/Registration</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -186,7 +185,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <button type="button" class="btn btn-primary btn-sm" onclick="login()">
                                                 Login
                                             </button>
-                                            <a href="<?php echo URL ?>/admin">Admin login</a>
+                                            <a href="<?php echo URL ?>admin">Admin login</a>
                                         </div>
                                     </div>
                                 </form>
@@ -206,7 +205,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <label for="email" class="col-sm-2 control-label">
                                             Email</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="emailrg" placeholder="Email"/>
+                                            <input type="email" class="form-control" id="emailrg" placeholder="Email" name="emailrg"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -214,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             Password</label>
                                         <div class="col-sm-10">
                                             <input type="password" class="form-control" id="passwordrg"
-                                                   placeholder="Password"/>
+                                                   placeholder="Password" name="passwordrg"/>
                                         </div>
                                     </div>
                                     <div class="row">

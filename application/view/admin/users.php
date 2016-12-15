@@ -34,25 +34,26 @@
                             </tr>
                             </thead>
                             <?php
-                            foreach ($load_users as $r) {
+                            foreach ($load_view_user as $r) {
                                 ?>
                                 <tbody id="row-user-<?php echo $r['user_id'] ?>">
                                 <tr>
                                     <td><?php echo $r['user_id'] ?></td>
                                     <td><?php echo $r['username'] ?></td>
                                     <td><?php echo $r['email'] ?></td>
-                                    <td><?php echo $r['rule'] ?></td>
-                                    <td><img src="<?php echo URL ?>images/user/<?php echo $r['avatar'] ?>"
-                                             style="width: 150px; height: 150px"></td>
+                                    <td><?php echo $r['id_group'] ?></td>
+                                    <td><img src="<?php echo URL ?><?php echo $r['avatar'] ?>"
+                                             style="width: 100px; height: 100px"></td>
                                     <td>
                                         <a class="btn btn-primary text-center btn-edit" style="min-width: 80px"
-                                           data-toggle="modal" href="<?php echo URL ?>users/edit_user/<?php echo $r['user_id'] ?>">Edit
+                                           data-toggle="modal"
+                                           href="<?php echo URL ?>users/edit_user/<?php echo $r['user_id'] ?>">Edit
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="btn btn-danger btn-delete" style="min-width: 80px"
-                                           onclick="showModal(<?php echo $r['user_id'] ?>)">Delete
-                                        </a>
+                                    <a class="btn btn-danger btn-delete" style="min-width: 80px"
+                                       onclick="showModal(<?php echo $r['user_id'] ?>)">Delete
+                                    </a>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -64,6 +65,16 @@
                     </div>
                     <!-- /.box-body -->
                 </div>
+                <?php if ($trang == 1) { ?>
+                    <a href="<?php echo URL ?>users?trang=<?php echo $trang + 1 ?>" class="btn btn-primary">NEXT</a>
+                <?php }
+                if ($trang < $so_trang && $trang > 1) { ?>
+                    <a href="<?php echo URL ?>users?trang=<?php echo $trang - 1 ?>" class="btn btn-success">BACK</a>
+                    <a href="<?php echo URL ?>users?trang=<?php echo $trang + 1 ?>" class="btn btn-primary">NEXT</a>
+                <?php }
+                if ($trang == $so_trang && $trang > 1) { ?>
+                    <a href="<?php echo URL ?>users?trang=<?php echo $trang - 1 ?>" class="btn btn-success">BACK</a>
+                <?php } ?>
                 <!-- /.box -->
             </div>
             <!-- /.col -->
@@ -79,7 +90,7 @@
                 <h4 class="modal-title">Thêm USERS</h4>
             </div>
             <div class="modal-body">
-                <form action="<?php echo URL ?>/admin/newUsers" method="post" enctype="multipart/form-data">
+                <form action="<?php echo URL ?>users/newUsers" method="post" enctype="multipart/form-data">
                     Username: <input type="text" name="user" id="inputID" class="form-control" value="" title=""
                                      required="required">
                     Password: <input type="password" name="pass" id="inputID" class="form-control" value="" title=""

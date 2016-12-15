@@ -256,8 +256,8 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <?php $_SESSION['avatar'] ?>
-                            <img src="<?php echo URL ?>images/user/<?php echo $_SESSION['avatar']?>" class="user-image" alt="User Image">
-                            <span class="hidden-xs"><?php  echo $_SESSION['name']?></span>
+                            <img src="<?php echo URL ?><?php echo $_SESSION['avatar']?>" class="user-image" alt="User Image">
+                            <span class="hidden-xs"><?php  echo $_SESSION['username']?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -265,7 +265,7 @@
                                 <img src="<?php echo URL ?>images/user/<?php echo $_SESSION['avatar']?>" class="img-circle" alt="User Image">
 
                                 <p>
-                                    <?php  echo $_SESSION['name']?>
+                                    <?php  echo $_SESSION['username']?>
                                     <small>Member since Nov <?php  echo $_SESSION['created_at']?></small>
                                 </p>
                             </li>

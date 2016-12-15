@@ -10,6 +10,12 @@ class Home extends Controller
         $travel = $this->model->getHome(1, 1);
         $music = $this->model->getHome(2, 2);
         $fashion = $this->model->getHome(3, 3);
+
+        $to = date("Y-m-d");
+        $from = date_create($to);
+        date_add($from, date_interval_create_from_date_string("-1 week"));
+        $from = date_format($from, "Y-m-d");
+        $popularBlogs = $this->model->getPopularBlogs($from, $to);
         //load view
         require APP . "view/__templates/header.php";
         require APP . "view/index.php";
@@ -104,115 +110,15 @@ class Home extends Controller
             if ($isValid == 1) {
                 die(json_encode($error));
             }
-
-//            if (!Validation::isValidUser($username)) {
-//                $error = array("error" => true, "message" => "Sai dinh dang ten dang nhap roi");
-//                die(json_encode($error));
-//            }
-//            if (!Validation::isValidPass($password)) {
-//                $error = array("error" => true, "message" => "Sai dinh dang mat khau roi");
-//                die(json_encode($error));
-//            }
-//            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//                $error = array("error" => true, "message" => "Sai dinh dang email roi");
-//                die(json_encode($error));
-//            }
-//            $check = $this->model->check_user($username);
-//            if ($check == 0) {
-//                $password = password_hash($password, PASSWORD_DEFAULT);
-//                $this->model->register($username, $email, $password);
-//                $_SESSION['login'] = 1;
-//                $_SESSION['name'] = $username;
-//                $success = array("error" => false, "message" => "");
-//                echo json_encode($success);
-//
-//                require APP . "libs/PHPMailer/PHPMailerAutoload.php";
-//
-//                $mail = new PHPMailer;
-//
-//                $mail->SMTPDebug = 0;                               // Enable verbose debug output
-//
-//                $mail->isSMTP();                                      // Set mailer to use SMTP
-//                $mail->CharSet = "UTF-8";
-//                $mail->Host = 'mailtrap.io';  // Specify main and backup SMTP servers
-//                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-//                $mail->Username = '3d096ec81f4797';                 // SMTP username
-//                $mail->Password = '28b53de9a8c493';                           // SMTP password
-//                $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-//                $mail->Port = 25;                                    // TCP port to connect to
-//
-//                $mail->setFrom('abc@gmail.com', 'Mailer');
-//                $mail->addAddress($email, 'MHT');     // Add a recipient
-//
-//                $mail->isHTML(true);                                  // Set email format to HTML
-//
-//                $mail->Subject = 'Thành công rồi nhé';
-//                $mail->Body = 'This is the HTML message body <b>in bold!</b>';
-//                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-//
-//                if (!$mail->send()) {
-//                    echo 'Message could not be sent.';
-//                    echo 'Mailer Error: ' . $mail->ErrorInfo;
-//                } else {
-////                    echo 'Message has been sent';
-//                }
-//            } else {
-//                $error = array("error" => true, "message" => "Tai khoan da ton tai");
-//                die(json_encode($error));
-//            }
         }
     }
 
-//            if ($check == 0) {
-//
-//                $this->model->register($username, $email, $password);
-//                $_SESSION['login'] = 1;
-//                $_SESSION['name'] = $username;
-////                $_SESSION['id_user'] = $login['user_id'];
-//                echo "thanhcong";
-//
-//
-//                require APP . "libs/PHPMailer/PHPMailerAutoload.php";
-//
-//                $mail = new PHPMailer;
-//
-//                $mail->SMTPDebug = 0;                               // Enable verbose debug output
-//
-//                $mail->isSMTP();                                      // Set mailer to use SMTP
-//                $mail->CharSet="UTF-8";
-//                $mail->Host = 'mailtrap.io';  // Specify main and backup SMTP servers
-//                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-//                $mail->Username = '3d096ec81f4797';                 // SMTP username
-//                $mail->Password = '28b53de9a8c493';                           // SMTP password
-//                $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-//                $mail->Port = 25;                                    // TCP port to connect to
-//
-//                $mail->setFrom('abc@gmail.com', 'Mailer');
-//                $mail->addAddress($email, 'MHT');     // Add a recipient
-//
-//                $mail->isHTML(true);                                  // Set email format to HTML
-//
-//                $mail->Subject = 'Thành công rồi nhé';
-//                $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-//                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-//
-//                if(!$mail->send()) {
-//                    echo 'Message could not be sent.';
-//                    echo 'Mailer Error: ' . $mail->ErrorInfo;
-//                } else {
-////                    echo 'Message has been sent';
-//                }
-//            } else {
-//                echo "tachroi";
-//            }
-//        }
-//    }
 
     public function logout()
     {
         if (isset($_POST['action']) == "logout") {
             unset($_SESSION['login']);
-            unset($_SESSION['name']);
+            unset($_SESSION['username']);
             unset($_SESSION['id_user']);
             header('location:' . URL);
         }

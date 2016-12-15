@@ -67,16 +67,16 @@
                 <div class="tc-ch wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 
                     <div class="tch-img">
-                        <a href="singlepage.html"><img src="<?php echo URL ?>images/blog/<?php echo $travel["image"] ?>"
-                                                       class="img-responsive" alt=""></a>
+                        <a href="singlepage.html"><img src="<?php echo URL ?><?php echo $travel["image"] ?>"
+                                                       class="img-responsive" alt="" style="width: 750px"></a>
                     </div>
 
                     <h3><a href="singlepage.html"><?php echo $travel["title"] ?></a></h3>
-                    <h6>BY <a href="singlepage.html"><?php echo $travel["username"] ?> </a><?php echo $travel["created_at"] ?>
+                    <h6>BY <a href="singlepage.html"><?php echo $travel["username"] ?> </a><?php echo $travel["created_at"] ?> IN <a href="singlepage.html"><?php echo $travel["name_category"] ?> </a>
                     </h6>
                     <p><?php echo $travel["description"] ?></p>
                     <div class="bht1">
-                        <a href="singlepage.html">Continue Reading</a>
+                        <a href="singlepage.html">Read More</a>
                     </div>
                     <div class="soci">
                         <ul>
@@ -100,13 +100,13 @@
                             <div class="tc-ch">
                                 <div class="tch-img">
                                     <a href="singlepage.html">
-                                        <img src="<?php echo URL ?>images/blog/<?php echo $music["image"] ?>"
-                                             class="img-responsive" alt=""></a>
+                                        <img src="<?php echo URL ?><?php echo $music["image"] ?>"
+                                             class="img-responsive" alt="" style="width: 300px; height: 200px;"></a>
                                 </div>
-
-                                <h3><a href="singlepage.html"><?php echo $music["title"] ?></a></h3>
-                                <h6>BY <a
-                                        href="singlepage.html"><?php echo $music["username"] ?> </a><?php echo $music["created_at"] ?>
+                                <div class="title-blog" style="height: 100px">
+                                    <h3><a href="singlepage.html"><?php echo $music["title"] ?></a></h3>
+                                </div>
+                                <h6>BY <a href="singlepage.html"><?php echo $music["username"] ?> </a><?php echo $music["created_at"] ?> IN <a href="singlepage.html"><?php echo $music["name_category"] ?> </a>
                                 </h6>
                                 <p><?php echo $music["description"] ?></p>
                                 <div class="bht1">
@@ -133,14 +133,14 @@
                     <div class="wthree">
                         <div class="col-md-6 wthree-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                             <div class="tch-img">
-                                <a href="singlepage.html"><img src="images/blog/<?php echo $fashion["image"]?>"
+                                <a href="singlepage.html"><img src="<?php echo $fashion["image"]?>"
                                                                class="img-responsive"
-                                                               alt=""></a>
+                                                               alt="" style="width: 300px; height: 200px;"></a>
                             </div>
                         </div>
                         <div class="col-md-6 wthree-right wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                             <h3><a href="singlepage.html"><?php echo $fashion["title"]?></a></h3>
-                            <h6>BY <a href="singlepage.html"><?php echo $fashion["username"]?> </a><?php echo $fashion["created_at"]?></h6>
+                            <h6>BY <a href="singlepage.html"><?php echo $fashion["username"]?> </a><?php echo $fashion["created_at"]?> IN <a href="singlepage.html"><?php echo $fashion["name_category"]?> </a></h6>
                             <p><?php echo $fashion["description"]?></p>
                             <div class="bht1">
                                 <a href="singlepage.html">Read More</a>
@@ -177,61 +177,24 @@
                         </form>
                     </div>
                     <h4>Popular Posts </h4>
-                    <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <div class="blog-grid-left">
-                            <a href="singlepage.html"><img src="<?php echo URL ?>images/t2.jpg" class="img-responsive"
-                                                           alt=""></a>
-                        </div>
-                        <div class="blog-grid-right">
+                    <?php
+                    foreach ($popularBlogs as $popularBlogs) {
+                        ?>
+                        <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+                            <div class="blog-grid-left">
+                                <a href="singlepage.html"><img src="<?php echo URL ?><?php echo $popularBlogs["image"] ?>"
+                                                               class="img-responsive"
+                                                               alt=""></a>
+                            </div>
+                            <div class="blog-grid-right">
 
-                            <h5><a href="singlepage.html">Pellentesque dui Maecenas male</a></h5>
+                                <h5><a href="singlepage.html"><?php echo $popularBlogs["title"] ?></a></h5>
+                            </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <div class="blog-grid-left">
-                            <a href="singlepage.html"><img src="<?php echo URL ?>images/m2.jpg" class="img-responsive"
-                                                           alt=""></a>
-                        </div>
-                        <div class="blog-grid-right">
-
-                            <h5><a href="singlepage.html">Pellentesque dui Maecenas male</a></h5>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <div class="blog-grid-left">
-                            <a href="singlepage.html"><img src="<?php echo URL ?>images/f2.jpg" class="img-responsive"
-                                                           alt=""></a>
-                        </div>
-                        <div class="blog-grid-right">
-
-                            <h5><a href="singlepage.html">Pellentesque dui Maecenas male</a></h5>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <div class="blog-grid-left">
-                            <a href="singlepage.html"><img src="<?php echo URL ?>images/t3.jpg" class="img-responsive"
-                                                           alt=""></a>
-                        </div>
-                        <div class="blog-grid-right">
-
-                            <h5><a href="singlepage.html">Pellentesque dui Maecenas male</a></h5>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <div class="blog-grid-left">
-                            <a href="singlepage.html"><img src="<?php echo URL ?>images/m3.jpg" class="img-responsive"
-                                                           alt=""></a>
-                        </div>
-                        <div class="blog-grid-right">
-
-                            <h5><a href="singlepage.html">Pellentesque dui Maecenas male</a></h5>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
+                        <?php
+                    }
+                    ?>
                     <div class="insta wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                         <h4>Instagram</h4>
                         <ul>

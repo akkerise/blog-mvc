@@ -4,10 +4,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel " id="status_user">
             <div class="pull-left image">
-                <img src="<?php echo URL ?>images/user/<?php echo $_SESSION['avatar']?>" class="img-circle" alt="User Image">
+                <img src="<?php echo URL ?><?php echo $_SESSION['avatar']?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p><?php  echo $_SESSION['name']?></p>
+                <p><?php  echo $_SESSION['username']?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -34,7 +34,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="<?php echo URL ?>posts"><i class="fa fa-circle-o"></i>Posts</a></li>
+                    <li class="active"><a href="<?php echo URL ?>posts?trang=1"><i class="fa fa-circle-o"></i>Posts</a></li>
                     <li><a href="<?php echo URL ?>posts/comments"><i class="fa fa-circle-o"></i>Comments</a></li>
                 </ul>
             </li>
@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="<?php echo URL ?>users">
+                <a href="<?php echo URL ?>users?trang=1">
                     <i class="fa fa-table"></i> <span>Users</span>
                     <span class="pull-right-container">
             </span>
