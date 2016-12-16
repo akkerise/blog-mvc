@@ -107,7 +107,24 @@ class Model
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }catch(PDOException $e){
-            echo "<pre>"; var_dump(die($e->getMessage())); echo "</pre>";exit();
+            echo $e->getMessage();
+        }
+    }
+
+    public function submitComment($comment, $user_id, $blog_id)
+    {
+        $sql = "INSERT INTO comments (comment, user_id, blog_id) VALUES (:comment, :user_id, :blog_id)";
+        try{
+            $query = $this->db->prepare($sql);
+            $parameters = array(
+                ":comment" => $comment,
+                ":user_id" => $user_id,
+                ":blog_id" => $blog_id
+            );
+            $query->execute($parameters);
+            return $this->db->lastInsertId();
+        }catch(PDOException $e){
+            echo $e->getMessage();
         }
     }
 

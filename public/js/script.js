@@ -81,3 +81,22 @@ function logout () {
         }
     })
 }
+
+function submitComment(blogId, userId) {
+    blogId = $("#blog-id-cm").val();
+    userId = $("#user-id-cm").val();
+    comment = $("#comment-detail").val();
+    $.ajax({
+        method: "post",
+        url: "http://localhost/blog-mvc/blogs/detail/" + blogId,
+        data: {
+            action: "comment",
+            blog_id: blogId,
+            user_id: userId,
+            comment: comment
+        },
+        success: function (data) {
+            console.log(data);
+        }
+    })
+}
