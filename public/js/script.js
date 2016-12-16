@@ -81,3 +81,49 @@ function logout () {
         }
     })
 }
+
+function getReplyTo(user_id, username) {
+    $("#reply_to").css("display", "block");
+    $("#reply_to_username").val(user_id);
+    $("#reply_to").val(username);
+}
+
+function submitComment(blogId, userId) {
+    blogId = $("#blog-id-cm").val();
+    userId = $("#user-id-cm").val();
+    comment = $("#comment-detail").val();
+    URL = "http://localhost/blog-mvc/";
+    replyTo = $("#reply_to_username").val();
+    $.ajax({
+        method: "post",
+        url: "http://localhost/blog-mvc/blogs/detail/" + blogId,
+        data: {
+            action: "comment",
+            blog_id: blogId,
+            user_id: userId,
+            comment: comment,
+            reply_to: replyTo
+        },
+        success: function (data) {
+            data = $.parseJSON(data);
+            console.log(data);
+            if (data.reply_to == 0) {
+                var html = '<div class="media response-info comment-detail-' + data.user_id +'"><div class="media-left response-text-left"> ' +
+                    '<a href="#"> <img src="' + URL + data.avatar + '" class="img-responsive" alt=""> </a> </div>' +
+                    ' <div class="media-body response-text-right"> <p>' + data.comment + '</p> <ul> <li>' + data.created_at + '</li> <li><a href="#">Reply</a></li> </ul>' +
+                    ' <div class="media response-info comment-reply-' + data.user_id +'"> <div class="media-left response-text-left"> </div> </div></div>';
+                $(".comment-detail").append(html);
+            } else {
+                var html1 = '<div class="media response-info comment-reply-' + data.reply_to + '"><div class="media-left response-text-left">' +
+                    ' <a href="#"> <img src="' + URL + data.avatar +'" class="img-responsive" alt=""> </a> </div> ' +
+                    '<div class="media-body response-text-right"> <strong>Answers</strong> <p>' + data.comment + '</p> ' +
+                    '<ul> <li>' + data.created_at + '</li> <li><a href="javascript:void(0)">Reply</a></li> </ul> </div> ' +
+                    '<div class="clearfix"></div>';
+                $(".comment-detail").append(html1);
+            }
+        }
+    })
+    $("#comment-detail").val("");
+    $("#reply_to").val("");
+    $("#reply_to").css("display", "none");
+}

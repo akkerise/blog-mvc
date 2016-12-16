@@ -67,16 +67,16 @@
                 <div class="tc-ch wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 
                     <div class="tch-img">
-                        <a href="singlepage.html"><img src="<?php echo URL ?><?php echo $travel["image"] ?>"
+                        <a href="<?php echo URL ?>blogs/detail/<?php echo $travel["blog_id"] ?>"><img src="<?php echo URL ?><?php echo $travel["image"] ?>"
                                                        class="img-responsive" alt="" style="width: 750px"></a>
                     </div>
 
-                    <h3><a href="singlepage.html"><?php echo $travel["title"] ?></a></h3>
-                    <h6>BY <a href="singlepage.html"><?php echo $travel["username"] ?> </a><?php echo $travel["created_at"] ?> IN <a href="singlepage.html"><?php echo $travel["name_category"] ?> </a>
+                    <h3><a href="<?php echo URL ?>blogs/detail/<?php echo $travel["blog_id"] ?>"><?php echo $travel["title"] ?></a></h3>
+                    <h6>BY <a href="<?php echo URL ?>blogs/detail/<?php echo $travel["blog_id"] ?>"><?php echo $travel["username"] ?> </a><?php echo $travel["created_at"] ?> IN <a href="singlepage.html"><?php echo $travel["name_category"] ?> </a>
                     </h6>
                     <p><?php echo $travel["description"] ?></p>
                     <div class="bht1">
-                        <a href="singlepage.html">Read More</a>
+                        <a href="<?php echo URL ?>blogs/detail/<?php echo $travel["blog_id"] ?>">Read More</a>
                     </div>
                     <div class="soci">
                         <ul>
@@ -99,18 +99,18 @@
                         <div class="col-md-6 w3ls-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                             <div class="tc-ch">
                                 <div class="tch-img">
-                                    <a href="singlepage.html">
+                                    <a href="<?php echo URL ?>blogs/detail/<?php echo $music["blog_id"] ?>">
                                         <img src="<?php echo URL ?><?php echo $music["image"] ?>"
                                              class="img-responsive" alt="" style="width: 300px; height: 200px;"></a>
                                 </div>
                                 <div class="title-blog" style="height: 100px">
-                                    <h3><a href="singlepage.html"><?php echo $music["title"] ?></a></h3>
+                                    <h3><a href="<?php echo URL ?>blogs/detail/<?php echo $music["blog_id"] ?>"><?php echo $music["title"] ?></a></h3>
                                 </div>
-                                <h6>BY <a href="singlepage.html"><?php echo $music["username"] ?> </a><?php echo $music["created_at"] ?> IN <a href="singlepage.html"><?php echo $music["name_category"] ?> </a>
+                                <h6>BY <a href="<?php echo URL ?>blogs/detail/<?php echo $music["blog_id"] ?>"><?php echo $music["username"] ?> </a><?php echo $music["created_at"] ?> IN <a href="singlepage.html"><?php echo $music["name_category"] ?> </a>
                                 </h6>
                                 <p><?php echo $music["description"] ?></p>
                                 <div class="bht1">
-                                    <a href="singlepage.html">Read More</a>
+                                    <a href="<?php echo URL ?>blogs/detail/<?php echo $music["blog_id"] ?>">Read More</a>
                                 </div>
                                 <div class="soci">
                                     <ul>
@@ -133,17 +133,17 @@
                     <div class="wthree">
                         <div class="col-md-6 wthree-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                             <div class="tch-img">
-                                <a href="singlepage.html"><img src="<?php echo $fashion["image"]?>"
+                                <a href="<?php echo URL ?>blogs/detail/<?php echo $fashion["blog_id"] ?>"><img src="<?php echo $fashion["image"]?>"
                                                                class="img-responsive"
                                                                alt="" style="width: 300px; height: 200px;"></a>
                             </div>
                         </div>
                         <div class="col-md-6 wthree-right wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-                            <h3><a href="singlepage.html"><?php echo $fashion["title"]?></a></h3>
-                            <h6>BY <a href="singlepage.html"><?php echo $fashion["username"]?> </a><?php echo $fashion["created_at"]?> IN <a href="singlepage.html"><?php echo $fashion["name_category"]?> </a></h6>
+                            <h3><a href="<?php echo URL ?>blogs/detail/<?php echo $fashion["blog_id"] ?>"><?php echo $fashion["title"]?></a></h3>
+                            <h6>BY <a href="<?php echo URL ?>blogs/detail/<?php echo $fashion["blog_id"] ?>"><?php echo $fashion["username"]?> </a><?php echo $fashion["created_at"]?> IN <a href="singlepage.html"><?php echo $fashion["name_category"]?> </a></h6>
                             <p><?php echo $fashion["description"]?></p>
                             <div class="bht1">
-                                <a href="singlepage.html">Read More</a>
+                                <a href="<?php echo URL ?>blogs/detail/<?php echo $fashion["blog_id"] ?>">Read More</a>
                             </div>
                             <div class="soci">
                                 <ul>
@@ -182,13 +182,13 @@
                         ?>
                         <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                             <div class="blog-grid-left">
-                                <a href="singlepage.html"><img src="<?php echo URL ?><?php echo $popularBlogs["image"] ?>"
+                                <a href="<?php echo URL ?>blogs/detail/<?php echo $popularBlogs["blog_id"] ?>"><img src="<?php echo URL ?><?php echo $popularBlogs["image"] ?>"
                                                                class="img-responsive"
                                                                alt=""></a>
                             </div>
                             <div class="blog-grid-right">
 
-                                <h5><a href="singlepage.html"><?php echo $popularBlogs["title"] ?></a></h5>
+                                <h5><a href="<?php echo URL ?>blogs/detail/<?php echo $popularBlogs["blog_id"] ?>"><?php echo $popularBlogs["title"] ?></a></h5>
                             </div>
                             <div class="clearfix"></div>
                         </div>
