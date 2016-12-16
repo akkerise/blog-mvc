@@ -15,7 +15,7 @@ class profile extends Controller {
     {
         if(isset($_POST['post']))
         {
-            
+
         }
     }
 }

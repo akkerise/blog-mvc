@@ -436,4 +436,65 @@ class Model
             echo $e->getMessage();
         }
     }
+
+    public function getBlogCate ($category_id)
+    {
+        $sql = "SELECT * FROM blogs WHERE category_id = $category_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function getCategory_blog ($category_id, $from, $so_tin_1trang)
+    {
+        $sql = "SELECT * FROM blogs WHERE category_id = $category_id ORDER BY blogs.created_at DESC LIMIT  $from, $so_tin_1trang  ";
+        try {
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function search ($search)
+    {
+        $sql = "SELECT title FROM blogs WHERE title LIKE '%$search%' LIMIT 0,5";
+        try {
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    // get profile user
+
+    public function profile ($id_user)
+    {
+        $sql = "SELECT * FROM users WHERE user_id = $id_user";
+        try {
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function updateAva ($id_user, $fileImage)
+    {
+        $sql = "UPDATE users SET avarar = $fileImage WHERE user_id = $id_user";
+        try{
+            $query = $this->db->prepare($sql);
+            return $query->execute();
+        }catch (PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 }

@@ -15,6 +15,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <script src="<?php echo URL ?>js/jquery-1.11.1.min.js"></script>
     <script src="<?php echo URL ?>js/bootstrap.min.js"></script>
+
+<!--    -->
+<!--    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+<!--    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">-->
+
+
     <script src="<?php echo URL ?>js/script.js"></script>
     <link href="<?php echo URL ?>css/style.css" rel='stylesheet' type='text/css'/>
     <!-- animation-effect -->
@@ -70,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li class="active act"><a href="<?php echo URL ?>">Home</a></li>
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="features.html">Features</a></li>
-                                <li><a href="<?php echo URL ?>blog/travel">Travel</a></li>
+                                <li><a href="<?php echo URL ?>travel?trang=1">Travel</a></li>
                                 <li><a href="fashion.html">Fashion</a></li>
                                 <li><a href="music.html">Music</a></li>
                                 <li><a href="codes.html">Codes</a></li>
@@ -103,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span class='caret'></span> <span class='sr-only'>Toggle Dropdown</span></button> 
                             <ul class='dropdown-menu menu_user'> 
                             <li><a href='#' onclick= 'logout()' >Đăng xuất</a></li> 
-                            <li><a href='#' >aaaaaaaa</a></li> </ul> </div>";
+                            <li><a href='". URL."profile" ."'>Profile</a></li></ul> </div>";
                     }
                     else
                     {
@@ -119,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--start-main-->
 <div class="header-bottom">
-    <div class="container">
+    <div class="container" style="margin-top: 40px">
         <div class="logo wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
             <h1><a href="index.html">STYLE BLOG</a></h1>
             <p><label class="of"></label>LET'S MAKE A PERFECT STYLE<label class="on"></label></p>

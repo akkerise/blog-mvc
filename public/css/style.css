@@ -197,6 +197,24 @@ label.icon-search span {
 
 /*--//search--*/
 
+.results_search {
+    position: absolute;
+    top: 5%;
+    width: 73%;
+    background-color: white;
+    z-index: 1000;
+    display: none;
+}
+#results_search li {
+    list-style-type: none;
+    padding: 10px 5px;
+    cursor: pointer;
+
+}
+.ui-widget-content .ui-menu-divider {
+    height: 20px;
+    color: black;
+}
 /*--social-icons--*/
 .social-icons {
     margin-top: 0.5em;
@@ -206,7 +224,10 @@ label.icon-search span {
     display: inline-block;
     margin-left: 1em;
 }
-
+/*style profile*/
+.sidebar-menu li {
+    cursor: pointer;
+}
 .social-icons ul li a {
     background: url(../images/social-icons.png) no-repeat -3px -2px;
     display: block;

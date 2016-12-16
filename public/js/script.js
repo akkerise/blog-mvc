@@ -82,6 +82,23 @@ function logout () {
     })
 }
 
+function showModalAvatar(id_user) {
+    $("#myModal_avatar").modal();
+}
+function update_avatar (id_user) {
+    var id_user = id_user;
+    $.ajax({
+        method:"post",
+        url: "http://localhost/blog-mvc/travel/update_ava",
+        data: {
+            action: "update_ava",
+            id_user: id_user
+        },
+        success:function (data) {
+
+        }
+    })
+}
 function submitComment(blogId, userId) {
     blogId = $("#blog-id-cm").val();
     userId = $("#user-id-cm").val();
@@ -100,3 +117,71 @@ function submitComment(blogId, userId) {
         }
     })
 }
+
+$(document).ready(function () {
+
+
+    // $("#search").autocomplete({
+    //     source: 'http://localhost/blog-mvc/home/search'
+    // });
+
+    $("#search").keyup(function () {
+        var search =  $("#search").val();
+        if (search == ""){
+            $(".results_search").css("display", "none");
+        }else {
+            $.ajax({
+                method: "post",
+                url: "http://localhost/blog-mvc/home/search",
+                data: {
+                    search: search,
+                    action: "search"
+                },
+                success:function (data) {
+
+                    $(".results_search").css("display", "block");
+                    data = JSON.parse(data);
+
+                        var html = "";
+
+                        // console.log(data.length);
+                        for (var i = 0; i < data.length; i++)
+                        {
+                            html += "<li><a>" + data[i].title  +"</a></li>";
+
+                        }
+                        $("#results_search").html(html);
+
+                }
+            })
+        }
+
+
+    })
+    // $("#search_btn").click(function () {
+    //     // $("#results_search").css()
+    //     var search = $("#search").val();
+    //     $.ajax({
+    //         method: "post",
+    //         url: "http://localhost/blog-mvc/home/search_btn",
+    //         data: {
+    //             search: search,
+    //             action: "search"
+    //         },
+    //         success:function (data) {
+    //             data = JSON.parse(data);
+    //             console.log(data);
+    //             var html = "";
+    //
+    //             // console.log(data.length);
+    //             for (var i = 0; i < data.length; i++)
+    //             {
+    //                 html += "<a>" + data[i].title  +"</a></br>";
+    //
+    //             }
+    //             $("#results_search").html(html);
+    //         }
+    //     })
+    // })
+    
+})

@@ -123,5 +123,35 @@ class Home extends Controller
             header('location:' . URL);
         }
     }
+    public function updateAvatar ()
+    {
+        if (isset($_POST['action']))
+        {
 
+        }
+    }
+//    public function search_btn ()
+//    {
+//        if (isset($_POST['action']) == "search") {
+//            $term = trim($_POST['search']);
+//            $list_title = $this->model->search($term);;
+//
+//
+//            echo json_encode($list_title);
+//        }
+//    }
+    public function search ()
+    {
+        if (isset($_POST['action']) == "search") {
+            $term = trim($_POST['search']);
+            $list_title = $this->model->search($term);;
+
+            if ($list_title != ""){
+                echo json_encode($list_title);
+            }
+            else {
+                echo "không có kết quả";
+            }
+        }
+    }
 }

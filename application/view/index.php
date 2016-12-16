@@ -169,13 +169,12 @@
             <div class="blo-top1">
 
                 <div class="tech-btm">
-                    <div class="search-1 wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-                        <form action="#" method="post">
-                            <input type="search" name="Search" value="Search" onfocus="this.value = '';"
-                                   onblur="if (this.value == '') {this.value = 'Search';}" required="">
-                            <input type="submit" value=" ">
+                    <div class="search-1 wow fadeInDown" id= "search_home" data-wow-duration=".8s" data-wow-delay=".2s">
+                        <form >
+                            <input id="search" type="search" name="Search" required="" placeholder="Search">
                         </form>
                     </div>
+                    <div class="results_search"><ul id="results_search"></ul></div>
                     <h4>Popular Posts </h4>
                     <?php
                     foreach ($popularBlogs as $popularBlogs) {
