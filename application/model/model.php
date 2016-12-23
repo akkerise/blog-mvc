@@ -99,6 +99,31 @@ class Model
         }
     }
 
+    public function getView($blog_id)
+    {
+        $sql = "SELECT * FROM blogs WHERE blog_id = $blog_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $view = $query->fetch(PDO::FETCH_ASSOC);
+            return $view["views"];
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function updateView($blog_id, $view)
+    {
+        $sql = "UPDATE blogs SET views = $view WHERE blog_id = $blog_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $view;
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
     public function getCommentsByBlog($blog_id)
     {
         $sql = "SELECT a.*, b.* FROM comments a INNER JOIN users b ON a.user_id = b.user_id WHERE blog_id = $blog_id";
@@ -111,18 +136,57 @@ class Model
         }
     }
 
-    public function submitComment($comment, $user_id, $blog_id)
+    public function submitComment($comment, $user_id, $blog_id, $reply_to)
     {
-        $sql = "INSERT INTO comments (comment, user_id, blog_id) VALUES (:comment, :user_id, :blog_id)";
+        $sql = "INSERT INTO comments (comment, user_id, blog_id, reply_to) VALUES (:comment, :user_id, :blog_id, :reply_to)";
         try{
             $query = $this->db->prepare($sql);
             $parameters = array(
                 ":comment" => $comment,
                 ":user_id" => $user_id,
-                ":blog_id" => $blog_id
+                ":blog_id" => $blog_id,
+                ":reply_to" => $reply_to
             );
             $query->execute($parameters);
             return $this->db->lastInsertId();
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function getCommentById($comment_id)
+    {
+        $sql = "SELECT * FROM comments a INNER JOIN users b ON a.user_id = b.user_id WHERE a.comment_id = $comment_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $arr = $query->fetch(PDO::FETCH_ASSOC);
+            return json_encode($arr);
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function getCategoryByBlog($blog_id)
+    {
+        $sql = "SELECT * FROM blogs WHERE blog_id = $blog_id";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $category = $query->fetch(PDO::FETCH_ASSOC);
+            return $category["category_id"];
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function getRelatedPosts($category_id)
+    {
+        $sql = "SELECT * FROM blogs WHERE category_id = $category_id ORDER BY created_at DESC LIMIT 5";
+        try{
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
         }catch(PDOException $e){
             echo $e->getMessage();
         }

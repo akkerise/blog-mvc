@@ -1761,7 +1761,7 @@ p.reply i {
     font-family: 'Open Sans', sans-serif;
 }
 
-.coment-form input[type="submit"] {
+.coment-form input[type="submit"], .coment-form input[type="button"] {
     background: #fa4b2a;
     border: 1px solid #fa4b2a;
     padding: .8em 0;
